@@ -20,6 +20,5 @@ echo "Your ID is $id";
 mysqli_query($link,"INSERT INTO member (id,password) VALUES('$id','$pass')");
 
 
-
 mysqli_close($link);
 ?>
