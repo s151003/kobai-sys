@@ -4,7 +4,7 @@
 <h1>登録フォーム</h1>
 </br>
 id:
-<input type="text" name="email" maxlength="100">
+<input type="text" name="id" maxlength="100">
 password:
 <input type="password" name="password" maxlength="256">
 <input type="submit" name="submit" value="aaaa">
