@@ -1,24 +1,22 @@
 <?php
-
 require("connect_sql.php");
 
 $id = $_POST['id'];
 $password = $_POST['password'];
+
 
 if($id == "" || $password == ""){
 	print "IDかパスワードが空です";
 }else{
 	$result = mysqli_query($link,"SELECT * FROM `member` WHERE `id` = '$id'");
 	$row = mysqli_fetch_array($result);
-
-	if(in_array($id,$row)){
-		echo "使われてます";
+		if($row[0] == "" || $row[1] == ""){
+		echo "そのようなIDは存在しません。まず登録してください";
 	}else{
-		$query = mysqli_query($link,"INSERT INTO member(id,password) VALUES('$id','$password')");
-		if(!$query){
-			echo "登録できませんでした";
+		if($row[1] == "$password"){
+			require("mypage.php");
 		}else{
-			echo "登録完了";
+			echo "IDかPWが間違いだ";
 		}
 	}
 }
