@@ -1,0 +1,5 @@
+connect_sql.php - sqlに接続するため
+regist_form.php - 会員登録フォーム
+register.php - 会員登録フォームの情報をSQLに送信
+login.php - ログインフォーム
+auth.php - ログイン処理
