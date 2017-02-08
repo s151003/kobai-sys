@@ -14,7 +14,10 @@ if($id == "" || $password == ""){
 		echo "そのようなIDは存在しません。まず登録してください";
 	}else{
 		if($row[1] == "$password"){
-			require("mypage.php");
+			//loginへ
+			session_start();
+			$_SESSION['sid'] = "$id";
+			header( "Location: mypage.php" );
 		}else{
 			echo "IDかPWが間違いだ";
 		}
