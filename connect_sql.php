@@ -1,7 +1,14 @@
 ﻿<?php
-$link = mysqli_connect("localhost", "root", "", "kobai");
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$dbname = "kobai";
+
+
+$link = mysqli_connect($hostname, $username, $password, $dbname);
+
 if(!$link){
-	$sqlconect = "Mysqlへの接続に失敗";
+	echo "dbconnect error";
 }else{
-	$sqlconect = "connected</br></br>";
+	echo "DB connected";
 }
