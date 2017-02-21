@@ -17,27 +17,114 @@ h1 {color:#123456}
     <p>
     <select name="syohin1"required>
     <optgroup>
-        <option value="1">選択してください</option>
-        <option value="メロンパン">メロンパン</option>
-        <option value="モチモチ">モチモチ</option>
-        <option value="チョコリング">チョコリング</option>
-        <option value="シュガートースト">シュガートースト</option>
+        <option value="1">商品1</option>
+        <option value="メロンパン">スペシャルメロンパン　
+        <?php 
+        $weekno = date('D');
+        if ($weekno == "Mon") {
+            echo "120円（20円割引）";
+        } else {
+            echo "140円";
+        }  ?></option>
+
+        <option value="カレーパン">カレーパン　
+        <?php 
+        $weekno = date('D');
+        if ($weekno == "Tue") {
+            echo "100円（20円割引）";
+        } else {
+            echo "120円";
+        } ?></option>
+
+        <option value="チョコリング">チョコリング
+        <?php 
+        $weekno = date('D');
+        if ($weekno == "Wed") {
+            echo "120円（20円割引）";
+        } else {
+            echo "140円";
+        } ?></option>
+
+        <option value="クリーミー大福">クリーミー大福
+        <?php 
+        $weekno = date('D');
+        if ($weekno == "Thu") {
+            echo "120円（20円割引）";
+        } else {
+            echo "140円";
+        } ?></option>
+
+        <option value="チリドッグ">チリドッグ
+        <?php 
+        $weekno = date('D');
+        if ($weekno == "Fri") {
+            echo "140円（20円割引）";
+        } else {
+            echo "160円";
+        } ?></option>
+
+        <option value="チョコシュガー">チョコシュガー 100円</option>
+        <option value="モチモチココア">モチモチココア 100円</option>
+        <option value="モチモチきなこ">モチモチきなこ 100円</option>
+        <option value="モチモチ抹茶">モチモチ抹茶 100円</option>
     </optgroup> 
-    </select>
+        </select>
     <select name="syohin2"required>
     <optgroup>
-        <option value="1">選択してください</option>
-        <option value="メロンパン">メロンパン</option>
-        <option value="モチモチ">モチモチ</option>
-        <option value="チョコリング">チョコリング</option>
-        <option value="シュガートースト">シュガートースト</option>
+        <option value="1">商品2</option>
+        <option value="メロンパン">スペシャルメロンパン　
+        <?php 
+        $weekno = date('D');
+        if ($weekno == "Mon") {
+            echo "120円（20円割引）";
+        } else {
+            echo "140円";
+        }  ?></option>
+
+        <option value="カレーパン">カレーパン　
+        <?php 
+        $weekno = date('D');
+        if ($weekno == "Tue") {
+            echo "100円（20円割引）";
+        } else {
+            echo "120円";
+        } ?></option>
+
+        <option value="チョコリング">チョコリング
+        <?php 
+        $weekno = date('D');
+        if ($weekno == "Wed") {
+            echo "120円（20円割引）";
+        } else {
+            echo "140円";
+        } ?></option>
+
+        <option value="クリーミー大福">クリーミー大福
+        <?php 
+        $weekno = date('D');
+        if ($weekno == "Thu") {
+            echo "120円（20円割引）";
+        } else {
+            echo "140円";
+        } ?></option>
+
+        <option value="チリドッグ">チリドッグ
+        <?php 
+        $weekno = date('D');
+        if ($weekno == "Fri") {
+            echo "140円（20円割引）";
+        } else {
+            echo "160円";
+        } ?></option>
+
+        <option value="チョコシュガー">チョコシュガー 100円</option>
+        <option value="モチモチココア">モチモチココア 100円</option>
+        <option value="モチモチきなこ">モチモチきなこ 100円</option>
+        <option value="モチモチ抹茶">モチモチ抹茶 100円</option>
     </optgroup> 
     </select>              
     </p>
-    <p>
-        ID<input type required></br>
-        ＊例０１０９４２（１年９組４２番）
-    </p>
+
     <p>
         <input <?php $_SESSION['sid']; ?> type="submit" value="予約する">
     </p>

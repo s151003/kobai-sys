@@ -7,11 +7,11 @@
 <body>
 <p>予約完了</p>
 	<?php
-
-	$bango = $_POST['bango'];
+	session_start();
+	$sid = $_SESSION['sid'];
 	$syohin1 = $_POST['syohin1'];
 	$syohin2 = $_POST['syohin2'];
-	echo "$bango さん\n";
+	echo "$sid さん\n";
 	if ($syohin1 == $syohin2) {
 		echo "$syohin1 ２個を予約";
 	} else {
