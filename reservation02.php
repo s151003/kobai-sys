@@ -13,7 +13,7 @@ $b = 1;
 while($b <= $a){
 	if(isset($_GET[$b])){
 		echo $b;
-		$sql="delete from reservation02 where id = $b";
+		$sql="delete from yoyaku where id = $b";
 		if(!$res=mysql_query($sql)){
 			echo "エラー";
 			exit;
