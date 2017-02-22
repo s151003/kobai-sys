@@ -14,17 +14,24 @@
 	$syohin2 = $_POST['syohin2'];
 	$time = date('Y/m/d H:i:s');
 
-	$dummy = "あああ";
 	echo "$sid さん";
 	if($syohin1 == 1 && $syohin2 == 1){
 	echo "商品を選択してください";
 	echo '</br><a href="mypage.php"><input type="button" value="戻る" noClick="test03.php" href="mypage.php">';
 	}else{
 		if ($syohin1 == $syohin2) {
-			mysqli_query($link,"INSERT INTO yoyaku(ID,Time,sina) VALUES('$sid','$time','$syohin1,$syohin1')");
+
+		$sql = 'select count(*) as cnt from .yoyaku';
+		$res = mysql_query($sql);
+		$row = mysql_fetch_assoc($res);
+		echo $row['cnt'];
+		$aa = $row['cnt'];
+		$aa++;
+		echo $aa;
+			mysqli_query($link,"INSERT INTO yoyaku(ID,Time,sina) VALUES('$aa','$time','$syohin1,$syohin1')");
 			echo "$syohin1 ２個を予約";
 		} else {
-			mysqli_query($link,"INSERT INTO yoyaku(ID,Time,sina) VALUES('$sid','$time','$syohin1,$syohin2')");
+			mysqli_query($link,"INSERT INTO yoyaku(ID,Time,sina) VALUES('$aa','$time','$syohin1,$syohin2')");
 			echo "$syohin1 $syohin2 を予約";
 		}
 
