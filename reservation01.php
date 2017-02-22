@@ -36,7 +36,7 @@ print('<tr><th>名前</th><th>商品</th><th> </th><th> </th></tr>');
 
 while($row = mysql_fetch_assoc($result)){
 print('<p>');
-print('<tr><th>'.$row['name'].'</th><th>'.$row['product'].'</th><th><input type="checkbox"name="'.$n.'"></th><th>'.$n.'</th></tr>');
+print('<tr><th>'.$row['id'].'</th><th>'.$row['sina'].'</th><th><input type="checkbox"name="'.$n.'"></th><th>'.$n.'</th></tr>');
 print('</p>');
 $n++;
 }
