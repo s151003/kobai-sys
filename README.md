@@ -1,9 +1,9 @@
 # ファイルについて
-## 会員登録
-*regist_form.php  
+## 会員登録  
+*regist_form.php*  
 会員登録フォーム    
 
-*register.php
+*register.php*
 会員登録処理（平文でSQLへ(^O^)/）
 
 ## ログイン
