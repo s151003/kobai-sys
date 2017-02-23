@@ -9,6 +9,4 @@ $link = mysqli_connect($hostname, $username, $password, $dbname);
 
 if(!$link){
 	echo "dbconnect error";
-}else{
-	echo "DB connected";
 }
