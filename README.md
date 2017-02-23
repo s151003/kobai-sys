@@ -1,9 +1,10 @@
 # ファイルについて
 ## 会員登録
-###regist_form.php
-会員登録ホーム
+*regist_form.php
+会員登録フォーム
+*register.php
+会員登録処理（平文でSQLへ(^O^)/）
 
-register.php - 会員登録処理（平文で送信）
 ## ログイン
 login.php - ログインフォーム
 auth.php - ログイン処理（平文で送信）
