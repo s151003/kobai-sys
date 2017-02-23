@@ -10,7 +10,7 @@
 $n = 1;
 require("connect_sql.php");
 
-$result = mysql_query('SELECT id,name,product FROM product');
+$result = mysql_query('SELECT id,name,product FROM yoyaku');
 $sql = 'select count(*) as cnt from .yoyaku';
 $res = mysql_query($sql);
 $row = mysql_fetch_assoc($res);

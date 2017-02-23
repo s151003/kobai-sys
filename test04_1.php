@@ -14,8 +14,10 @@
 	echo "$sid さん\n";
 	if ($syohin1 == $syohin2) {
 		echo "$syohin1 ２個を予約";
-	} else {
+		echo '<meta http-equiv="refresh"content="2;URL=login.php">';
+		} else {
 		echo "$syohin1 $syohin2 を予約";
+		echo '<meta http-equiv="refresh"content="2;URL=login.php">';
 	}
 
 	?>
