@@ -6,17 +6,17 @@
 
 # ファイルについて
 ## 会員登録  
-* ** regist_form.php**   
+* **regist_form.php**   
 会員登録フォーム  
 
-* ** register.php**   
+* **register.php**   
 会員登録処理
 
 ## ログイン
-- ** login.php**   
+- **login.php**   
 ログインフォーム
 
-* ** auth.php**   
+* **auth.php**   
 ログイン処理
 
 ## 予約
