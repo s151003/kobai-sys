@@ -2,12 +2,9 @@
 $product = $_POST['product'];
 $value = $_POST['value'];
 
-$link = mysql_connect('localhost','root','');
-if(!$link){
-	die('接続失敗'.mysql_error());
-}
+require("yoyaku_connect.php");
 
-$sql = mysqli_query("INSERT INTO products(product,value) VALUES('$product','$value')");
+$sql = mysqli_query($link,"INSERT INTO products (product,value) VALUES('$product',''$value')");
 if(!$sql){
 	echo "データベース登録の際にエラー";
 }else{
