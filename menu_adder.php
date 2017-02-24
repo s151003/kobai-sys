@@ -9,19 +9,19 @@ require("connect_sql.php");
 
 $week = array("日", "月", "火", "水", "木", "金", "土");
 
-if(!$discount == 7 || $dis_value == ""){  //もし$discountが"7"でないなら
+if(!$discount == 7 && $dis_value == ""){  //もし$discountが"7"でないかつ、$dis_valueが空欄だった場合
 			echo "いくら割引するか書いてください。";
 	}else{
 		$sql = mysqli_query($link,"INSERT INTO products (name,value,discount,dis_value) VALUES ('$product','$value','$discount','$dis_value')");
 		if(!$sql){
-			echo "データベース登録の際にエラー";
+			echo "データベース登録の際にエラーがおきました。";
 		}else{
-			echo "$product を価格$value 円で登録しました";
+			echo "商品名<b>「$product&shy;」</b>を価格<b>$value&shy;円</b>で登録しました";
 			echo "</br>";
 			if($discount == 7){
-				echo "割引曜日は設定されていません。";
+				echo "<b>割引曜日は設定されていません。</b>";
 			}else{
-				echo "$week[$discount]曜日に$dis_value 円割引します。</br>割引後の価格は$after_discount 円です。";
+				echo "<b>$week[$discount]曜日</b>に<b>$dis_value&shy;円</b>割引します。</br>割引後の価格は<b>$after_discount 円</b>です。";
 			}
 		}
 	}
