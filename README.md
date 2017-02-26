@@ -1,8 +1,10 @@
 # 課題
 ## 平文で送信
 よく知らんがきっとだめだろう。  
-特にログイン、レジスター
-## 数え切れないほどの課題あり
+特にログイン、レジスター  
+6005eea50def287090d0
+
+
 
 # ファイルについて
 ## 会員登録  
@@ -36,5 +38,18 @@
 - **menu_adder.php**  
 ```add_menu.php``` からデータを受け取り、SQLへ送る
 
-## そのほか
-connect_sql.php - SQL接続
+# SQL
+## member
+- id
+- password
+- time 登録時刻
+
+## products
+- id 通し番号（付け方が分からない）
+- name 商品名
+- value 商品価格
+- discount 割引する曜日（曜日番号）
+- dis_value 曜日割引でいくら割り引くか
+
+## yoyaku
+- 後で
