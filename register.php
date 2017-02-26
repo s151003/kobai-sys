@@ -10,7 +10,7 @@ if($id == "" || $password == ""){
 }else{
 	$result = mysqli_query($link,"SELECT * FROM `member` WHERE `id` = '$id'");
 	$row = mysqli_fetch_array($result);
-
+	
 	if(in_array($id,$row)){
 		echo "使われてます";
 	}else{
@@ -18,7 +18,8 @@ if($id == "" || $password == ""){
 		if(!$query){
 			echo "登録できませんでした";
 		}else{
-			echo "登録完了";
+			echo "登録完了</br>";
+			echo '<a href="login.php" target="_blank">ログインはこちら</a>';
 		}
 	}
 }
