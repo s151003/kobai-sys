@@ -2,7 +2,7 @@
 ## 平文で送信
 よく知らんがきっとだめだろう。  
 特にログイン、レジスター  
-6005eea50def287090d0
+http://qiita.com/itosho/items/9565c6ad2ffc24c09364
 
 
 
