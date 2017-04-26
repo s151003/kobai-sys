@@ -1,10 +1,13 @@
+Gitのコミットメッセージの書き方
+http://qiita.com/itosho/items/9565c6ad2ffc24c09364
+
 # 課題
 ## 平文で送信
 よく知らんがきっとだめだろう。  
 特にログイン、レジスター  
-http://qiita.com/itosho/items/9565c6ad2ffc24c09364
 
-
+パスワードをDBに保存する時の基礎の基礎的なこと
+http://qiita.com/ms2sato/items/6005eea50def287090d0
 
 # ファイルについて
 ## 会員登録  
