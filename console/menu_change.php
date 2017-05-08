@@ -9,6 +9,7 @@ echo "<table border>";
 // 表の一番上
 echo "<tr><td>商品ID</td><td>商品名</td><td>価格</td><td>曜日割引</td><td>割引価格</td><td></td></tr>";
 $week = array("日", "月", "火", "水", "木", "金", "土","なし");
+
 $count = 0;
 while ($row = mysqli_fetch_assoc($query)){
   $count ++;
@@ -26,4 +27,6 @@ while ($row = mysqli_fetch_assoc($query)){
 
 echo "</table>";
 echo "商品数 $count"; //商品数
+
+<input type="submit" name="button1" value="送信する">
 ?>
