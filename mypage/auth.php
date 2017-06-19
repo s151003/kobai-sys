@@ -1,5 +1,5 @@
 <?php
-require("connect_sql.php");
+require("../connect_sql.php");
 
 $id = $_POST['id'];
 $password = $_POST['password'];
