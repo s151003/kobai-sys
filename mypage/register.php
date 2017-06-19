@@ -1,6 +1,6 @@
 <?php
 
-require("connect_sql.php");
+require("../connect_sql.php");
 
 $id = $_POST['id'];
 $password = $_POST['password'];
@@ -19,7 +19,7 @@ if($id == "" || $password == ""){
 			echo "登録できませんでした";
 		}else{
 			echo "登録完了</br>";
-			echo '<a href="mypage/login.php" target="_blank">ログインはこちら</a>';
+			echo '<a href="login.php" target="_blank">ログインはこちら</a>';
 		}
 	}
 }
