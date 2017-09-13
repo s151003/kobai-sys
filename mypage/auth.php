@@ -19,7 +19,7 @@ if($id == "" || $password == ""){
 			$_SESSION['sid'] = "$id";
 			header( "Location: mypage.php" );
 		}else{
-			echo "IDかPWが間違いだ";
+			echo "IDかPWが間違いです";
 		}
 	}
 }
