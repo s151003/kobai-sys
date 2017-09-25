@@ -15,7 +15,7 @@ DBからメニューを取得して表示する
 パスワードをDBに保存する時の基礎の基礎的なこと
 http://qiita.com/ms2sato/items/6005eea50def287090d0
 
-#フォルダ
+# フォルダ
 * **console**
 おばちゃん向け画面
 * **mypage**
