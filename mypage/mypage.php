@@ -18,112 +18,73 @@ h1 {color:#123456}
     <select name="syohin1"required>
     <optgroup>
         <option value="1">商品1</option>
-        <option value="メロンパン">スペシャルメロンパン　
-        <?php 
-        $weekno = date('D');
-        if ($weekno == "Mon") {
-            echo "120円（20円割引）";
-        } else {
-            echo "140円";
-        }  ?></option>
+        <?php
+        $link = mysql_connect("localhost","root","");
+        if (!$link) {
+            $sqlconect = "失敗";
+            }else{
+                $sqlconect = "connected to localhost <br>";
+            }
 
-        <option value="カレーパン">カレーパン　
-        <?php 
-        $weekno = date('D');
-        if ($weekno == "Tue") {
-            echo "100円（20円割引）";
-        } else {
-            echo "120円";
-        } ?></option>
+        echo "$sqlconect";
 
-        <option value="チョコリング">チョコリング
-        <?php 
-        $weekno = date('D');
-        if ($weekno == "Wed") {
-            echo "120円（20円割引）";
-        } else {
-            echo "140円";
-        } ?></option>
+        $db_selected = mysql_select_db(koubai,$link);
+        if (!$db_selected) {
+            die('データベースに接続失敗'.mysql_error());
+        }
 
-        <option value="クリーミー大福">クリーミー大福
-        <?php 
-        $weekno = date('D');
-        if ($weekno == "Thu") {
-            echo "120円（20円割引）";
-        } else {
-            echo "140円";
-        } ?></option>
+        echo "データベースに接続 <br>";
 
-        <option value="チリドッグ">チリドッグ
-        <?php 
-        $weekno = date('D');
-        if ($weekno == "Fri") {
-            echo "140円（20円割引）";
-        } else {
-            echo "160円";
-        } ?></option>
+        $result = mysql_query('SELECT id,name,value FROM menu');
+        if (!$result) {
+            die('クエリーが失敗しました。'.mysql_error());
+        }
 
+        while ($row = mysql_fetch_array($result)) {
+           echo "<option>";
+        echo "$row[0]. $row[1] .$row[2]円 <br>";
+        echo"</option>";
+        }
+        mysql_close($link);
+        ?>
 
-        <option value="チョコシュガー">チョコシュガー 100円</option>
-        <option value="モチモチココア">モチモチココア 100円</option>
-        <option value="モチモチきなこ">モチモチきなこ 100円</option>
-        <option value="モチモチ抹茶">モチモチ抹茶 100円</option>
-    </optgroup> 
+    </optgroup>
         </select>
     <select name="syohin2"required>
     <optgroup>
         <option value="1">商品2</option>
-        <option value="メロンパン">スペシャルメロンパン　
-        <?php 
-        $weekno = date('D');
-        if ($weekno == "Mon") {
-            echo "120円（20円割引）";
-        } else {
-            echo "140円";
-        }  ?></option>
+        <?php
+        $link = mysql_connect("localhost","root","");
+        if (!$link) {
+            $sqlconect = "失敗";
+            }else{
+                $sqlconect = "connected to localhost <br>";
+            }
 
-        <option value="カレーパン">カレーパン　
-        <?php 
-        $weekno = date('D');
-        if ($weekno == "Tue") {
-            echo "100円（20円割引）";
-        } else {
-            echo "120円";
-        } ?></option>
+        echo "$sqlconect";
 
-        <option value="チョコリング">チョコリング
-        <?php 
-        $weekno = date('D');
-        if ($weekno == "Wed") {
-            echo "120円（20円割引）";
-        } else {
-            echo "140円";
-        } ?></option>
+        $db_selected = mysql_select_db(koubai,$link);
+        if (!$db_selected) {
+            die('データベースに接続失敗'.mysql_error());
+        }
 
-        <option value="クリーミー大福">クリーミー大福
-        <?php 
-        $weekno = date('D');
-        if ($weekno == "Thu") {
-            echo "120円（20円割引）";
-        } else {
-            echo "140円";
-        } ?></option>
+        echo "データベースに接続 <br>";
 
-        <option value="チリドッグ">チリドッグ
-        <?php 
-        $weekno = date('D');
-        if ($weekno == "Fri") {
-            echo "140円（20円割引）";
-        } else {
-            echo "160円";
-        } ?></option>
+        $result = mysql_query('SELECT id,name,value FROM menu');
+        if (!$result) {
+            die('クエリーが失敗しました。'.mysql_error());
+        }
 
-        <option value="チョコシュガー">チョコシュガー 100円</option>
-        <option value="モチモチココア">モチモチココア 100円</option>
-        <option value="モチモチきなこ">モチモチきなこ 100円</option>
-        <option value="モチモチ抹茶">モチモチ抹茶 100円</option>
-    </optgroup> 
-    </select>              
+        while ($row = mysql_fetch_array($result)) {
+           echo "<option>";
+        echo "$row[0]. $row[1] .$row[2]円 <br>";
+        echo"</option>";
+        }
+        mysql_close($link);
+        ?>
+
+    </optgroup>
+    </select>
     </p>
 
     <p>
@@ -132,6 +93,3 @@ h1 {color:#123456}
     </form>
 </body>
 </html>
-
-
-

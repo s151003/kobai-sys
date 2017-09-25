@@ -10,6 +10,7 @@ if($id == "" || $password == ""){
 }else{
 	$result = mysqli_query($link,"SELECT * FROM `member` WHERE `id` = '$id'");
 	$row = mysqli_fetch_array($result);
+	$hash = mysqli_query($link,"SELECT * FROM `member` WHERE `password` = '$password'");
 		if($row[0] == "" || $row[1] == ""){
 		echo "そのようなIDは存在しません。まず登録してください";
 	}else{
