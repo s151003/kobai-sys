@@ -15,19 +15,21 @@
 	$time = date('Y/m/d H:i:s');
 
 	echo "$sid さん";
+
+	if ($result = mysqli_query($link,"SELECT koubai FROM yoyaku ORDER BY ID")){
+		$row_cnt = mysqli_num_rows($result);
+		printf("行数はです");
+	};
+
 	if($syohin1 == 1 && $syohin2 == 1){
 	echo "商品を選択してください";
 	echo '</br><a href="mypage.php"><input type="button" value="戻る" noClick="test03.php" href="mypage.php">';
 	}else{
 		if ($syohin1 == $syohin2) {
 //レコードの数を数える
-		/*$sql = 'select count(*) as cnt from .yoyaku';
-		$res = mysql_query($sql);
-		$row = mysql_fetch_assoc($res);
-		echo $row['cnt'];
-		$aa = $row['cnt'];
-		$aa++;
-		echo $aa;*/
+
+
+
 			mysqli_query($link,"INSERT INTO yoyaku(Time,product,user_id) VALUES('$time','$syohin1,$syohin1','$sid')");
 			echo "$syohin1 ２個を予約";
 		} else {
@@ -36,7 +38,7 @@
 		}
 
 	?>
-	<form action="test04_1.php" method="post">
+	<form action="done.php" method="post">
 	<a href="mypage.php"><input type="button" value="戻る" noClick="test03.php" href="mypage.php">
 	</a>
 	<input type="hidden" name="bango" value="<?php echo $bango ?>">

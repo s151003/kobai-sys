@@ -13,7 +13,7 @@ h1 {color:#123456}
     <h2> <?php session_start(); echo $_SESSION['sid'];
         ?>
      さん 予約したい商品を選択してください</h2>
-    <form name="yoyaku" action="test04.php" method="post">
+    <form name="yoyaku" action="check.php" method="post">
     <p>
     <select name="syohin1"required>
     <optgroup>
