@@ -16,24 +16,26 @@
 
 	echo "$sid さん";
 
-	if ($result = mysqli_query($link,"SELECT koubai FROM yoyaku ORDER BY ID")){
+	if ($result = mysqli_query($link,"SELECT ID FROM koubai.yoyaku ORDER BY ID")){
 		$row_cnt = mysqli_num_rows($result);
-		printf("行数はです");
+		$row_cnt = $row_cnt + 1;
+	}else{
+		echo "クエリーの実行時にエラーが出ています\n";
+		printf (mysqli_error($link));
 	};
 
 	if($syohin1 == 1 && $syohin2 == 1){
 	echo "商品を選択してください";
-	echo '</br><a href="mypage.php"><input type="button" value="戻る" noClick="test03.php" href="mypage.php">';
+	echo '</br><a href="mypage.php"><input type="button" value="戻る" href="mypage.php">';
 	}else{
 		if ($syohin1 == $syohin2) {
 //レコードの数を数える
 
 
-
-			mysqli_query($link,"INSERT INTO yoyaku(Time,product,user_id) VALUES('$time','$syohin1,$syohin1','$sid')");
+			mysqli_query($link,"INSERT INTO yoyaku(ID,Time,product,user_id) VALUES('$row_cnt','$time','$syohin1,$syohin1','$sid')");
 			echo "$syohin1 ２個を予約";
 		} else {
-			mysqli_query($link,"INSERT INTO yoyaku(Time,product,user_id) VALUES('$time','$syohin1,$syohin2','$sid')");
+			mysqli_query($link,"INSERT INTO yoyaku(ID,Time,product,user_id) VALUES('$row_cnt','$time','$syohin1,$syohin2','$sid')");
 			echo "$syohin1 $syohin2 を予約";
 		}
 
