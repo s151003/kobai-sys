@@ -14,7 +14,6 @@
   <h2>メニュー追加</h2>
   <hr>
 
-
   <div class="form-froup">
     <label>名前</br></label>
     <input required type="text" name="product" maxlength="100" class="form-control"></br>

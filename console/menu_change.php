@@ -1,12 +1,10 @@
 <?php
 require("../connect_sql.php");
-//require("day.php");
 
-$query = mysqli_query($link,'SELECT id,name,value,discount,dis_value FROM products');
+$query = mysqli_query($link,'SELECT id,name,value,dis_day,dis_value FROM products');
 
-
+// 表開始
 echo "<table border>";
-// 表の一番上
 echo "<tr><td>商品ID</td><td>商品名</td><td>価格</td><td>曜日割引</td><td>割引価格</td><td></td></tr>";
 $week = array("日", "月", "火", "水", "木", "金", "土","なし");
 
@@ -24,8 +22,9 @@ while ($row = mysqli_fetch_assoc($query)){
   echo "<td><input type='checkbox' name='del' value='".$count."'></td>"; //checkbox
   echo "</tr>";
 }
-
 echo "</table>";
+//表終わり
+
 echo "商品数 $count"; //商品数
 
 echo '<input type="submit" name="button1" value="送信する">';

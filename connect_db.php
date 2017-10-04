@@ -4,7 +4,6 @@ $username = "root";
 $password = "";
 $dbname = "koubai";
 
-
 $link = mysqli_connect($hostname, $username, $password, $dbname);
 
 if(!$link){
