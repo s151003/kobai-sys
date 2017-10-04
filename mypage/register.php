@@ -5,7 +5,7 @@ require("../connect_db.php");
 $id = $_POST['id'];
 $password = $_POST['password'];
 
- $code = password_hash("$password ", PASSWORD_DEFAULT)."\n";
+ $code = password_hash("$password", PASSWORD_DEFAULT)."\n";
 
 
 if($id == "" || $password == ""){
