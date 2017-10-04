@@ -7,7 +7,7 @@
 <body>
 <meta http-equiv="refresh" content="3;URL=./newres01.php">
 <?php
-require("connect_sql.php");
+require("../connect_db.php");
 
 $sql = "delete from yoyaku";
 if(!$res=mysql_query($sql)){

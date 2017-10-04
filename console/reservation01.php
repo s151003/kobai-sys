@@ -8,7 +8,7 @@
 <table border="1">
 <?php
 $n = 1;
-require("../connect_sql.php");
+require("../connect_db.php");
 
 $result = mysql_query('SELECT id,name,product FROM yoyaku');
 $sql = 'select count(*) as cnt from .yoyaku';
