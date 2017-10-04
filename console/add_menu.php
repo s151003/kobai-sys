@@ -4,15 +4,16 @@
   <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <form action="menu_adder.php" method="post">
 <input type="hidden" name= "mode" value="menu_adder" />
 
 <div class="container">
+    <div class="col-md-6">
   <h2>メニュー追加</h2>
   <hr>
+
 
   <div class="form-froup">
     <label>名前</br></label>
@@ -41,3 +42,5 @@
   </div>
     <input class="btn btn-primary" type="submit" name="submit" value="送信">
   </div>
+    <div class="col-md-6"></div>
+</div>
