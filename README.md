@@ -2,14 +2,13 @@ Gitのコミットメッセージの書き方
 http://qiita.com/itosho/items/9565c6ad2ffc24c09364
 
 # 課題
-## 予約情報と商品のデータベースに通し番号をつけたい
-　やり方がわからない
-　今あるレコードの数を数えて、++した数字を通し番号として登録しようとしたがうまくいかず保留
+
+
 ## メニューが手打ちである
 予約画面のセレクトボックスが手打ち
 DBからメニューを取得して表示する
 ## Passwordを平文で送信している（優先度低）
-ログイン、レジスター 
+ログイン、レジスター
 パスワードを暗号化データベースに保存する
 
 パスワードをDBに保存する時の基礎の基礎的なこと
@@ -52,7 +51,7 @@ http://qiita.com/ms2sato/items/6005eea50def287090d0
 - **add_menu.php**  
 入力フォーム
 - **menu_adder.php**  
-```add_menu.php``` からデータを受け取り、SQLへ送る
+```add_menu.php```からデータを受け取り、SQLへ送る
 
 # SQL
 ## member
@@ -69,3 +68,15 @@ http://qiita.com/ms2sato/items/6005eea50def287090d0
 
 ## yoyaku
 - 後で
+
+# 解決した課題
+## 予約情報と商品のデータベースに通し番号をつけたい
+```SELECT ID FROM koubai.yoyaku ORDER BY ID```でID列だけのレコードを取得  
+mysqli_num_rows();を使ってレコードの数を数え、$row_cntに数が入る  
+$row_cntに1足す  
+$row_cntをIDに入れる  
+check.php Line19  
+
+
+~~やり方がわからない~~  
+~~今あるレコードの数を数えて、++した数字を通し番号として登録しようとしたがうまくいかず保留~~  
