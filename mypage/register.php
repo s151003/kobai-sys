@@ -1,6 +1,6 @@
 <?php
 
-require("yoyaku_connect.php");
+require("../connect_db.php");
 
 $id = $_POST['id'];
 $password = $_POST['password'];

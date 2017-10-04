@@ -28,5 +28,5 @@ while ($row = mysqli_fetch_assoc($query)){
 echo "</table>";
 echo "商品数 $count"; //商品数
 
-<input type="submit" name="button1" value="送信する">
+echo '<input type="submit" name="button1" value="送信する">';
 ?>

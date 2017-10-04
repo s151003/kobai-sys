@@ -7,7 +7,7 @@
 <body>
 <p>内容を確認してください</p>
 	<?php
-	require("yoyaku_connect.php");
+	require("../connect_db.php");
 	session_start();
 	$sid = $_SESSION['sid'];
 	$syohin1 = $_POST['syohin1'];
