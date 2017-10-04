@@ -5,7 +5,7 @@ $discount = $_POST['discount'];
 $dis_value = $_POST['dis_value'];
 $after_discount = $value - $dis_value;
 
-require("connect_sql.php");
+require("../connect_db.php");
 
 $week = array("日", "月", "火", "水", "木", "金", "土");
 
