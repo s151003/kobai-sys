@@ -63,7 +63,7 @@ http://qiita.com/ms2sato/items/6005eea50def287090d0
 - id 通し番号（付け方が分からない）
 - name 商品名
 - value 商品価格
-- discount 割引する曜日（曜日番号）
+- dis_day 割引する曜日（曜日番号）
 - dis_value 曜日割引でいくら割り引くか
 
 ## yoyaku
