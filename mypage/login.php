@@ -2,8 +2,8 @@
 	<head>
 		<title>login</title>
 	</head>
-	<body>
-		<form action="auth.php" method="POST">
+<body>
+<form action="auth.php" method="POST">
 id:
 <input type="text" name="id" maxlength="100">
 password:
