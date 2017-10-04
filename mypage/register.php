@@ -4,9 +4,9 @@ require("../connect_db.php");
 
 $id = $_POST['id'];
 $password = $_POST['password'];
+$datetime = date("Y-m-d H:i:s");
 
- $code = password_hash("$password", PASSWORD_DEFAULT)."\n";
-
+$hash = password_hash("$password", PASSWORD_DEFAULT);
 
 if($id == "" || $password == ""){
 	print "IDかパスワードが空です";
@@ -17,7 +17,7 @@ if($id == "" || $password == ""){
 	if(in_array($id,$row)){
 		echo "使われてます";
 	}else{
-		$query = mysqli_query($link,"INSERT INTO member(id,password) VALUES('$id','$code')");
+		$query = mysqli_query($link,"INSERT INTO member(id,password,time) VALUES('$id','$hash','$datetime')");
 		if(!$query){
 			echo "登録できませんでした";
 		}else{
