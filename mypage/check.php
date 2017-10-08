@@ -20,7 +20,7 @@
 		$row_cnt = mysqli_num_rows($result);
 		$row_cnt = $row_cnt + 1;
 	}else{
-		echo "クエリーの実行時にエラーが出ています\n";
+		echo "クエリーの実行時にエラーが発生しました\n";
 		printf (mysqli_error($link));
 	};
 

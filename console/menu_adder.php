@@ -17,6 +17,7 @@ if(!$discount == 7 && $dis_value == ""){
 		if(!$sql){
 			echo "データベース登録の際にエラーがおきました。</br>";
 		}else{
+			if
 			echo "商品名<b>「$product&shy;」</b>を価格<b>$value&shy;円</b>で登録しました";
 			echo "</br>";
 			if($discount == 7){

@@ -76,9 +76,9 @@ h1 {color:#123456}
         }
 
         while ($row = mysql_fetch_array($result)) {
-           echo "<option>";
-        echo "$row[0]. $row[1] .$row[2]円 <br>";
-        echo"</option>";
+          echo "<option>";
+          echo "$row[0]. $row[1] .$row[2]円 <br>";
+          echo"</option>";
         }
         mysql_close($link);
         ?>

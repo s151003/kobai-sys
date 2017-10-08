@@ -3,11 +3,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <html lang = "ja">
 <head>
-  <title>ログイン</title>
+  <title>トップページ</title>
   <!-- bootstrap読み込み -->
-  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <script src="../bootstrap/js/bootstrap.min.js"></script>
-  <script src="../https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <!-- bootstrap読み込みここまで -->
 </head>
 <body>
@@ -30,12 +30,17 @@
   </div>
 </nav>
 <!-- ナビゲーションバーここまで -->
-  <div class="container">
-<form action="auth.php" method="POST">
-id:
-<input type="text" name="id" maxlength="100">
-password:
-<input type="password" name="password" maxlength="256">
 
-<input type="submit" name="submit" value="login">
-</div>
+<body>
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="../kobai-sys"><span class="glyphicon glyphicon-home">トップページ</span></a></li>
+    </ol>
+    <h1>柏の葉高校購買予約システム</h1>
+    <hr>
+    <div class="alert alert-info">
+      <strong>ようこそ！</strong> 柏の葉高校購買予約システム
+    </div></br>
+    <a href="http://bootstrap3.cyberlab.info/" class="btn btn-primary"><span class="label label-danger">New</span> Bootstrap3日本語リファレンス入門</a>
+  </div>
+</body>
