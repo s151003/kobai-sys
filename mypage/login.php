@@ -20,9 +20,9 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active">
-      <li><a href="../kobai-sys/mypage/login.php">ログイン</a></li>
-      <li><a href="../kobai-sys/mypage/regist_form.php">新規登録</a></li>
-      <li><a href="../kobai-sys/console">管理画面</a></li>
+      <li><a href="/kobai-sys/mypage/login.php">ログイン</a></li>
+      <li><a href="/kobai-sys/mypage/regist_form.php">新規登録</a></li>
+      <li><a href="/kobai-sys/console">管理画面</a></li>
     </ul>
     <button type="button" class="btn btn-default navbar-btn">
       <span class="glyphicon glyphicon-envelope"></span>
@@ -31,11 +31,18 @@
 </nav>
 <!-- ナビゲーションバーここまで -->
   <div class="container">
+    <h2>ログイン</h2>
+    <hr>
 <form action="auth.php" method="POST">
-id:
-<input type="text" name="id" maxlength="100">
-password:
-<input type="password" name="password" maxlength="256">
 
-<input type="submit" name="submit" value="login">
+  <div class="form-froup">
+    <label>ID</label></br>
+    <input required type="text" name="id" maxlength="100" class="form-control"></br>
+  </div>
+
+  <div class="form-froup">
+    <label>password</label></br>
+    <input required type="password" name="password" maxlength="100" class="form-control"></br>
+  </div>
+    <input class="btn btn-primary" type="submit" name="login" value="ログイン">
 </div>
