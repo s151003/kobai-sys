@@ -6,6 +6,8 @@ $dis_value = $_POST['dis_value'];
 $after_discount = $value - $dis_value;
 
 require("../connect_db.php");
+require("../head.php");
+output("メニュー追加フォーム");
 
 $week = array("日", "月", "火", "水", "木", "金", "土");
 
@@ -17,7 +19,6 @@ if(!$discount == 7 && $dis_value == ""){
 		if(!$sql){
 			echo "データベース登録の際にエラーがおきました。</br>";
 		}else{
-			if
 			echo "商品名<b>「$product&shy;」</b>を価格<b>$value&shy;円</b>で登録しました";
 			echo "</br>";
 			if($discount == 7){
