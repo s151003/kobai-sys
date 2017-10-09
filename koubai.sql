@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017 年 10 朁E09 日 15:22
+-- Generation Time: 2017 年 10 朁E09 日 18:56
 -- サーバのバージョン： 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -45,6 +45,9 @@ CREATE TABLE `products` (
   `value` int(255) NOT NULL,
   `dis_day` int(255) NOT NULL,
   `dis_value` int(255) NOT NULL,
+  `day_limit` int(255) NOT NULL,
+  `status` int(255) NOT NULL,
+  `category` int(255) NOT NULL,
   `comment` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -52,9 +55,12 @@ CREATE TABLE `products` (
 -- テーブルのデータのダンプ `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `value`, `dis_day`, `dis_value`, `comment`) VALUES
-(2, 'カレーパン（甘口）', 80, 7, 0, ''),
-(3, 'カレーパン（辛口）', 80, 7, 0, '');
+INSERT INTO `products` (`id`, `name`, `value`, `dis_day`, `dis_value`, `day_limit`, `status`, `category`, `comment`) VALUES
+(3, 'カレーパン（辛口）', 80, 7, 0, 0, 0, 0, ''),
+(4, 'カレーパン（甘口）', 80, 7, 0, 0, 0, 0, ''),
+(5, 'メロンパン', 80, 7, 0, 0, 0, 0, ''),
+(6, 'モーニングコーヒー', 90, 7, 0, 0, 0, 0, ''),
+(7, 'ラスク', 100, 7, 0, 0, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -109,7 +115,7 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `yoyaku`
 --
