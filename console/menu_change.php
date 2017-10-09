@@ -24,14 +24,15 @@ while ($row = mysqli_fetch_assoc($query)){
   echo "<td>",$row["value"],"</td>"; //価格
   echo "<td>",$week[$row["dis_day"]],"</td>"; //割引曜日
   echo "<td>",$row["dis_value"],"</td>";
-  echo "<td><button class=\"btn btn-default\" type='submit' name='del' value='",$row["name"],"'>削除</button></td>";
+  echo "<td><button class=\"btn btn-default\" type='submit' name='del' value='",$row["id"],"'>削除</button></td>";
   echo "<td><input type='checkbox' name='edit' value='".$count."'></td>"; //checkbox
   echo "<td>1日 個数</td>";
   echo "<td>予約</td>";
   echo "</tr>";
 }
+  echo "<h4>商品数 $count</h4><hr>";
   echo "</table>";
-  echo "商品数 $count"; //商品数
+ //商品数
 ?>
 <!-- 表ここまで -->
 </br></br>

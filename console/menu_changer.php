@@ -2,7 +2,8 @@
 require("../connect_db.php");
 
 if (isset($_POST['del'])){
-  $name = $_POST['del'];
-  $query = "DELETE FROM products WHERE name='$name'";
+  $id = $_POST['del'];
+  echo $id;
+  $query = "DELETE FROM products WHERE id='$id'";
   mysqli_query($link,"$query");
 };
