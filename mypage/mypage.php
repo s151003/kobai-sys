@@ -19,21 +19,7 @@ h1 {color:#123456}
     <optgroup>
         <option value="1">商品1</option>
         <?php
-        $link = mysql_connect("localhost","root","");
-        if (!$link) {
-            $sqlconect = "失敗";
-            }else{
-                $sqlconect = "connected to localhost <br>";
-            }
-
-        echo "$sqlconect";
-
-        $db_selected = mysql_select_db(koubai,$link);
-        if (!$db_selected) {
-            die('データベースに接続失敗'.mysql_error());
-        }
-
-        echo "データベースに接続 <br>";
+        require("../connect_db.php");
 
         $result = mysql_query('SELECT id,name,value FROM menu');
         if (!$result) {
