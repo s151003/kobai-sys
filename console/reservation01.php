@@ -1,9 +1,9 @@
 <html lang = "ja">
 <head>
-<title>おばちゃん専用</title>
+	<title>おばちゃん専用</title>
 </head>
-<body>
 
+<body>
 <form method="get"action="reservation02.php">
 <table border="1">
 <?php
@@ -27,10 +27,10 @@ if(!$result){
 print('<tr><th>名前</th><th>商品</th></tr>');
 
 while($row = mysql_fetch_assoc($result)){
-print('<p>');
-print('<tr><th>'.$row['name'].'</th><th>'.$row['product'].'</th></tr>');
-print('</p>');
-$n++;
+	print('<p>');
+	print('<tr><th>'.$row['name'].'</th><th>'.$row['product'].'</th></tr>');
+	print('</p>');
+	$n++;
 }
 
 $close = mysql_close($link);
