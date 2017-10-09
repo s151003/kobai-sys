@@ -1,4 +1,6 @@
 <?php
+
+//bootstrapを読み込みヘッダーを生成する
 function output($title){
       echo <<<EOM
       <!DOCTYPE html>

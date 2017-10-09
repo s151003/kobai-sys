@@ -1,11 +1,8 @@
 <head>
-  <title>メニュー管理ページ</title>
-  <!-- bootstrapの準備 -->
-  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-</head>
-
+  <?php
+  require("../head.php");
+  output("メニュー追加フォーム");
+  ?>
 <form action="menu_adder.php" method="post">
 <input type="hidden" name= "mode" value="menu_adder" />
 
