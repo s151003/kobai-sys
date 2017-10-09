@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017 年 10 朁E04 日 15:43
+-- Generation Time: 2017 年 10 朁E09 日 15:22
 -- サーバのバージョン： 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -27,17 +27,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `member` (
-  `id` varchar(255) NOT NULL,
+  `id` int(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- テーブルのデータのダンプ `member`
---
-
-INSERT INTO `member` (`id`, `password`, `time`) VALUES
-('aki', '$2y$10$LuAn.Q4PPo8FJQBVlFiBt.6bq7Me62EuYVexj44eielaa5HtA0x..', '2017-10-04 15:28:31');
 
 -- --------------------------------------------------------
 
@@ -50,9 +44,77 @@ CREATE TABLE `products` (
   `name` varchar(255) NOT NULL,
   `value` int(255) NOT NULL,
   `dis_day` int(255) NOT NULL,
-  `dis_value` int(255) NOT NULL
+  `dis_value` int(255) NOT NULL,
+  `comment` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- テーブルのデータのダンプ `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `value`, `dis_day`, `dis_value`, `comment`) VALUES
+(2, 'カレーパン（甘口）', 80, 7, 0, ''),
+(3, 'カレーパン（辛口）', 80, 7, 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `yoyaku`
+--
+
+CREATE TABLE `yoyaku` (
+  `id` int(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `products` int(255) NOT NULL,
+  `date` datetime NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`),
+  ADD KEY `id_2` (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `yoyaku`
+--
+ALTER TABLE `yoyaku`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `yoyaku`
+--
+ALTER TABLE `yoyaku`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
