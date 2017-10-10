@@ -71,6 +71,10 @@ http://qiita.com/ms2sato/items/6005eea50def287090d0
 
 # 解決した課題
 ## 予約情報と商品のデータベースに通し番号をつけたい
+この方法だと途中のレコードを消した後挿入すると番号がくるう
+MySQLにAUTO_INCREMENTという機能があったのでid列に適用した
+
+
 ```SELECT ID FROM koubai.yoyaku ORDER BY ID```でID列だけのレコードを取得  
 mysqli_num_rows();を使ってレコードの数を数え、$row_cntに数が入る  
 $row_cntに1足す  
