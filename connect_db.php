@@ -20,5 +20,5 @@ if(!$link){
 	exit;
 }else{
 	//MySQLで使う文字コードを設定
-	mysqli_character_set_name($link);
+	mysqli_set_charset($link,"utf8");
 }
