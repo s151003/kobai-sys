@@ -57,7 +57,7 @@ http://qiita.com/itosho/items/9565c6ad2ffc24c09364
 - time 登録時刻
 
 ## products
-- id 通し番号（付け方が分からない）
+- id 通し番号（AUTO_increment）
 - name 商品名
 - value 商品価格
 - dis_day 割引する曜日（曜日番号）
