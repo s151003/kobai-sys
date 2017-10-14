@@ -14,7 +14,7 @@ if($id == "" || $password == ""){
 	$result = mysqli_query($link,"SELECT * FROM `member` WHERE `user_id` = '$id'");
 	$row = mysqli_fetch_array($result);
 
-	if(in_array($id,$row)){ //$rowの配列のなかに$idがあったら
+	if(@in_array($id,$row)){ //$rowの配列のなかに$idがあったら
 		echo "そのIDは既に使われてます";
 	}else{
 		$query = mysqli_query($link,"INSERT INTO member(user_id,password,time) VALUES('$id','$hash','$datetime')");
