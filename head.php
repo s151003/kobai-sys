@@ -13,13 +13,14 @@ function output($title){
       <html lang = "ja">
       <head>
         <title> $title </title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap.min.css">
         <script src="//code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.0/js/responsive.bootstrap.min.js"></script>
 
         <!-- bootstrap読み込みここまで -->
       </head>
@@ -54,7 +55,7 @@ echo <<<EOM
 EOM;
 }
 
-  function DataTable($name){
+function DataTable($name){
     echo <<<EOM
     <script>  $(document).ready(function() {
       $.extend( $.fn.dataTable.defaults, {
@@ -62,8 +63,24 @@ EOM;
             url: "http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Japanese.json"
           }
         });
-        $('#$name').DataTable();
+        $('#$name').DataTable({
+          responsive: true
+        } );
     } );
   </script>
+EOM;
+}
+
+function CategoryCard($name,$comment,$id){
+  echo <<<EOM
+   <div class="col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3>$name</h3>
+        <p>$comment</p>
+        <p><a href="products_list.php?cat=$id" class="btn btn-primary" role="button">こちら</a></p>
+      </div>
+    </div>
+    </div>
 EOM;
 }

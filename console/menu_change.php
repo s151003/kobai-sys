@@ -2,19 +2,18 @@
 <?php
 require("../head.php");
 output("メニュー管理ページ");
+  DataTable("products");
  ?>
 <!-- 表生成開始 -->
 <div class="container">
-<table class="table">
-<tr><td>#</td><td>商品名</td><td>価格</td><td>曜日割引</td><td>割引価格</td><td>削除</td><td></td><td>予約受付数</td><td>販売受付</td></tr>
-
+<table id="products" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+<thead><tr><th>#</th><th>商品名</th><th>価格</th><th>曜日割引</th><th>割引価格</th><th>削除</th><th></th><th>予約受付数</th><th>販売受付</th></tr></thead>
 <?php
-session_start();
 require("../connect_db.php");
 $week = array("日", "月", "火", "水", "木", "金", "土","なし");
 $query = mysqli_query($link,'SELECT id,name,value,dis_day,dis_value,day_limit FROM products');
 $count = 0;
-
+echo "<tbody>";
 while ($row = mysqli_fetch_assoc($query)){
   $count ++;
 
@@ -31,6 +30,7 @@ while ($row = mysqli_fetch_assoc($query)){
   echo "</tr>";
 }
   echo "<h4>商品数 $count</h4><hr>";
+  echo "<tbody>";
   echo "</table>";
  //商品数
 ?>
