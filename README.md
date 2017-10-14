@@ -7,9 +7,7 @@ http://qiita.com/itosho/items/9565c6ad2ffc24c09364
 いい商品の選び方はないか考える  
 * テーブルにチェックボックス+数量指定（スマートフォンだと操作しにくい？）
 * 商品ページ→カート追加→予約（ショッピングサイトのような）
-* 
-
-## ベーシック認証（優先度低）
+* カテゴリ選択→絞り込んでから商品リスト表示
 
 # フォルダ
 * **console**
@@ -68,31 +66,30 @@ http://qiita.com/itosho/items/9565c6ad2ffc24c09364
 
 # 解決した課題
 ## 予約情報と商品のデータベースに通し番号をつけたい
-この方法だと途中のレコードを消した後挿入すると番号がくるう  
+$row_cntの方法だと途中のレコードを消した後挿入すると番号がくるう  
 MySQLにAUTO_INCREMENTという機能があったのでid列に適用した  
 
 
-```SELECT ID FROM koubai.yoyaku ORDER BY ID```でID列だけのレコードを取得  
-mysqli_num_rows();を使ってレコードの数を数え、$row_cntに数が入る  
-$row_cntに1足す  
-$row_cntをIDに入れる  
-check.php Line19  
+~~```SELECT ID FROM koubai.yoyaku ORDER BY ID```でID列だけのレコードを取得~~  
+~~mysqli_num_rows();を使ってレコードの数を数え、$row_cntに数が入る~~  
+~~$row_cntに1足す~~  
+~~$row_cntをIDに入れる~~  
+~~check.php Line19~~  
 
 
 ~~やり方がわからない~~  
 ~~今あるレコードの数を数えて、++した数字を通し番号として登録しようとしたがうまくいかず保留~~  
 
-## Passwordを平文で送信している（優先度低）  
-password_hashで暗号化してデータベースへpassword_verifyで認証  
+## Passwordを平文で送信している（優先度低)
+password_hashで暗号化してデータベースへ   
+password_verifyで認証  
 
---ログイン、レジスター--
---パスワードを暗号化データベースに保存する--
+https://secure.php.net/manual/ja/function.password-hash.php  
 
---パスワードをDBに保存する時の基礎の基礎的なこと--
---http://qiita.com/ms2sato/items/6005eea50def287090d0--
+~~ログイン、レジスター~~  
+~~パスワードを暗号化データベースに保存する~~--
 
 ## メニューが手打ちである
 
---予約画面のセレクトボックスが手打ち--
---DBからメニューを取得して表示する--
-
+~~予約画面のセレクトボックスが手打ち~~
+~~DBからメニューを取得して表示する~~
