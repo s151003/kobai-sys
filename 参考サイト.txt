@@ -3,3 +3,5 @@ Bootstrap 3 Tutorial https://www.w3schools.com/
 
 PHP 会員制サイトの制作方法 - ウェブ帳 http://www.webcyou.com/?p=4455
 Gitのコミットメッセージの書き方 itoshoさん - Qiita　http://qiita.com/itosho/items/9565c6ad2ffc24c09364
+
+DataTablesの使い方 https://qiita.com/nissuk/items/7ac59af5de427c0585c5
