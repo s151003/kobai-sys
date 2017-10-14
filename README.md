@@ -48,21 +48,29 @@ http://qiita.com/itosho/items/9565c6ad2ffc24c09364
 - **menu_adder.php**  
 ```add_menu.php```からデータを受け取り、SQLへ送る
 
-# SQL
+# SQL ```koubai.sql```
+
 ## member
-- id
-- password
+- id 通し番号（AUTO_INCREMENT）
+- user_id ユーザー指定のユーザーID
+- password password_hashで暗号化されたパスワード
 - time 登録時刻
 
 ## products
-- id 通し番号（AUTO_increment）
+- id 通し番号（AUTO_INCREMENT）
 - name 商品名
 - value 商品価格
 - dis_day 割引する曜日（曜日番号）
 - dis_value 曜日割引でいくら割り引くか
+- day_limit 一日あたりの販売個数
 
 ## yoyaku
-- 後で
+- id 通し番号
+- user_id ユーザーID
+- products 予約した商品
+- quantity 数量
+- date 予約時刻
+- status 状況
 
 # 解決した課題
 ## 予約情報と商品のデータベースに通し番号をつけたい
@@ -85,6 +93,9 @@ password_hashで暗号化してデータベースへ
 password_verifyで認証  
 
 https://secure.php.net/manual/ja/function.password-hash.php  
+
+サーバーで暗号化するからサーバーに届くまで平文  
+盗聴されると見られる  
 
 ~~ログイン、レジスター~~  
 ~~パスワードを暗号化データベースに保存する~~--
