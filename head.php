@@ -33,8 +33,9 @@ function output($title){
           </ul>
           <ul class="nav navbar-nav navbar-right">
 EOM;
+          //どのページからも見られるのでフルパス
           if (isset($_SESSION['sid'])){
-            echo "<p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</p>";
+            echo "<a href=\"/kobai-sys/mypage/mypage.php\"><p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</p></a>";
           }else {
             echo "<li><a href=\"/kobai-sys/mypage/regist_form.php\"><span class=\"glyphicon glyphicon-user\"></span> 登録</a></li>";
             echo "<li><a href=\"/kobai-sys/mypage/login.php\"><span class=\"glyphicon glyphicon-log-in\"></span> ログイン</a></li>";
