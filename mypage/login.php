@@ -1,6 +1,10 @@
 <?php
 require("../head.php");
 output("ログイン");
+if (isset($_SESSION['sid'])){
+  header( "Location: ./mypage.php" ) ;
+  exit;
+}
 ?>
 <div class="container">
 <form action="auth.php" method="POST">
