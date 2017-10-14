@@ -12,7 +12,6 @@
   $status = array("受付","受け取り済み","問題");
   DataTable("history");
   ?>
-
   <div class="container">
       <h1>あなたの予約履歴</h1>
       <hr>
