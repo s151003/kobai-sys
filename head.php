@@ -20,7 +20,7 @@ function output($title){
       <nav class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand">購買予約システム</a>
+            <a class="navbar-brand" href="/kobai-sys">購買予約システム</a>
           </div>
           <ul class="nav navbar-nav">
             <li class="active">
@@ -28,9 +28,10 @@ function output($title){
             <li><a href="/kobai-sys/mypage/regist_form.php">新規登録</a></li>
             <li><a href="/kobai-sys/console">管理画面</a></li>
           </ul>
-          <button type="button" class="btn btn-default navbar-btn">
-            <span class="glyphicon glyphicon-envelope"></span>
-          </button>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/kobai-sys/mypage/regist_form.php"><span class="glyphicon glyphicon-user"></span> 登録</a></li>
+            <li><a href="/kobai-sys/mypage/login.php"><span class="glyphicon glyphicon-log-in"></span> ログイン</a></li>
+          </ul>
         </div>
       </nav>
       <!-- ナビゲーションバーここまで -->
