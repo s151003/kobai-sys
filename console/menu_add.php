@@ -1,9 +1,10 @@
 <head>
   <?php
+  require("../connect_db.php");
   require("../head.php");
   output("メニュー追加フォーム");
 
-  $category = array("菓子パン","惣菜パン","食パン");
+
   ?>
 <form action="menu_adder.php" method="post">
 <input type="hidden" name= "mode" value="menu_adder" />
@@ -26,10 +27,10 @@
     <select name="category" class="form-control">
     <optgroup>
       <?php
-      $i = 0;
-      while ($i < count($category)) {
-        echo "<option value=",$i,">",$category[$i],"</option>";
-        $i ++;
+      $query = mysqli_query($link,'SELECT id,name FROM category');
+      $count = 0;
+      while($row = mysqli_fetch_array($query)){
+        echo "<option value=",$row[0],">",$row[1],"</option>";
       }
       ?>
     </optgroup>
