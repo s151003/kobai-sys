@@ -12,7 +12,7 @@ output("メニュー管理ページ");
 session_start();
 require("../connect_db.php");
 $week = array("日", "月", "火", "水", "木", "金", "土","なし");
-$query = mysqli_query($link,'SELECT id,name,value,dis_day,dis_value FROM products');
+$query = mysqli_query($link,'SELECT id,name,value,dis_day,dis_value,day_limit FROM products');
 $count = 0;
 
 while ($row = mysqli_fetch_assoc($query)){
@@ -26,7 +26,7 @@ while ($row = mysqli_fetch_assoc($query)){
   echo "<td>",$row["dis_value"],"</td>";
   echo "<td><button class=\"btn btn-default\" type='submit' name='del' value='",$row["id"],"'>削除</button></td>";
   echo "<td><input type='checkbox' name='edit' value='".$count."'></td>"; //checkbox
-  echo "<td>1日 個数</td>";
+  echo "<td>",$row["day_limit"],"</td>";
   echo "<td>予約</td>";
   echo "</tr>";
 }
