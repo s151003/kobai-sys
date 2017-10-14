@@ -14,8 +14,13 @@ function output($title){
       <head>
         <title> $title </title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
         <!-- bootstrap読み込みここまで -->
       </head>
     <body>
@@ -35,6 +40,7 @@ function output($title){
 EOM;
           //どのページからも見られるのでフルパス
           if (isset($_SESSION['sid'])){
+            echo "<button type=\"button\" class=\"btn btn-default navbar-btn\"><a href=\"/kobai-sys/mypage/history.php\">あなたの予約履歴</a></button>";
             echo "<a href=\"/kobai-sys/mypage/mypage.php\"><p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</p></a>";
           }else {
             echo "<li><a href=\"/kobai-sys/mypage/regist_form.php\"><span class=\"glyphicon glyphicon-user\"></span> 登録</a></li>";
