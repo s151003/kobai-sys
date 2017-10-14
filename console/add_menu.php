@@ -2,12 +2,14 @@
   <?php
   require("../head.php");
   output("メニュー追加フォーム");
+
+  $category = array("菓子パン","惣菜パン","食パン");
   ?>
 <form action="menu_adder.php" method="post">
 <input type="hidden" name= "mode" value="menu_adder" />
 
 <div class="container">
-    <div class="col-md-6">
+  <div class="col-md-6">
   <h2>メニュー追加</h2>
   <hr>
 
@@ -18,6 +20,20 @@
   <div class="form-froup">
     <label>値段</label></br>
     <input required type="number" name="value" maxlength="100" class="form-control"></br>
+  </div>
+  <div class="form-froup">
+    <label>カテゴリー</label></br>
+    <select name="category" class="form-control">
+    <optgroup>
+      <?php
+      $i = 0;
+      while ($i < count($category)) {
+        echo "<option value=",$i,">",$category[$i],"</option>";
+        $i ++;
+      }
+      ?>
+    </optgroup>
+  </select></br>
   </div>
   <div class="form-froup">
     <label>曜日割引</label></br>
@@ -34,7 +50,11 @@
   </div>
   <div class="form-froup">
     <label>いくら割引ますか（割引がない場合は空欄）</label></br>
-    <input type="number" name="dis_value" maxlength="100" class="form-control"></br></br></br>
+    <input type="number" name="dis_value" maxlength="100" class="form-control"></br>
+  </div>
+  <div class="form-froup">
+    <label>一日あたりの販売個数</label></br>
+    <input required type="number" name="day_limit" maxlength="100" class="form-control"></br>
   </div>
     <input class="btn btn-primary" type="submit" name="submit" value="送信">
   </div>
