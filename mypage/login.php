@@ -1,6 +1,7 @@
 <?php
 require("../head.php");
 output("ログイン");
+
 if (isset($_SESSION['sid'])){
   header( "Location: ./mypage.php" ) ;
   exit;

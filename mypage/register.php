@@ -1,5 +1,4 @@
 <?php
-
 require("../connect_db.php");
 
 $id = $_POST['id'];
