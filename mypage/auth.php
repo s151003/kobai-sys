@@ -10,6 +10,7 @@ if($id == "" || $password == ""){
 	$hash = mysqli_query($link,"SELECT * FROM `member` WHERE `user_id` = '$id'");
 	$row = mysqli_fetch_array($hash);
 		if($row[1] == "" || $row[2] == ""){
+		echo "IDかPWが間違いです";
 	}else{
 		if(password_verify($password, $row[2])){
 			//loginへ
