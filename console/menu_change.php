@@ -23,11 +23,31 @@ while ($row = mysqli_fetch_assoc($query)){
   echo "<td>",$row["value"],"</td>"; //価格
   echo "<td>",$week[$row["dis_day"]],"</td>"; //割引曜日
   echo "<td>",$row["dis_value"],"</td>";
-  echo "<td><button class=\"btn btn-default\" type='submit' name='del' value='",$row["id"],"'>削除</button></td>";
-  echo "<td><input type='checkbox' name='edit' value='".$count."'></td>"; //checkbox
+  echo "<td><button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#edit\"><span class=\"glyphicon glyphicon-pencil\"></span></button></td>";
+  echo "<td>sakujo</tb>"; //checkbox
   echo "<td>",$row["day_limit"],"</td>";
   echo "<td>予約</td>";
   echo "</tr>";
+  // <span class=\"glyphicon glyphicon-pencil\"></span>
+  echo <<<EOM
+  <div class="modal fade" id="edit" tabindex="-1">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+  			<div class="modal-header">
+  				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+  				<h4 class="modal-title">修正</h4>
+  			</div>
+  			<div class="modal-body">
+  				ここに修正
+  			</div>
+  			<div class="modal-footer">
+  				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+  				<button type="submit" class="btn btn-primary">送信</button>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+EOM;
 }
   echo "<h4>商品数 $count</h4><hr>";
   echo "<tbody>";
@@ -35,6 +55,29 @@ while ($row = mysqli_fetch_assoc($query)){
  //商品数
 ?>
 <!-- 表ここまで -->
+<!-- モーダルウィンドウを起動するボタン -->
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#MODAL1">MODAL</button><br>
+
+<!-- ここからモーダル -->
+<div class="modal fade" id="MODAL1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+          ヘッダ
+      </div>
+      <div class="modal-body">
+          ボディ
+      </div>
+      <div class="modal-footer">
+          フッター
+      </div>
+
+    </div> <!-- modal-content -->
+  </div>  <!-- modal-dialog -->
+</div>  <!-- modal fade -->
+
+
 </br></br>
 <input class="btn btn-default" type="submit" value="送信ボタン">
 </form>
