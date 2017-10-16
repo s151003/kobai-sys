@@ -1,3 +1,5 @@
+<?php
+// Here your code !
 <form action="menu_changer.php" method="post">
 <?php
 require("../connect_db.php");
@@ -10,7 +12,6 @@ DataTable("products");
 <table id="products" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 <thead><tr><th>#</th><th>商品名</th><th>価格</th><th>曜日割引</th><th>割引価格</th><th>修正</th><th>削除</th><th>予約受付数</th><th>販売受付</th></tr></thead>
 <?php
-require("../connect_db.php");
 $week = array("日", "月", "火", "水", "木", "金", "土","なし");
 $query = mysqli_query($link,'SELECT id,name,value,dis_day,dis_value,day_limit FROM products');
 $count = 0;
@@ -29,7 +30,6 @@ while ($row = mysqli_fetch_assoc($query)){
   echo "<td>",$row["day_limit"],"</td>";
   echo "<td>予約</td>";
   echo "</tr>";
-  $name = $row["id"];
   
   //delete
 ?>
@@ -45,7 +45,7 @@ while ($row = mysqli_fetch_assoc($query)){
   			</div>
   			<div class="modal-footer">
   				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-				<button type="submit" class="btn btn-danger" name='del' value='<?php echo $name; ?>'>削除</button>
+				<button type="submit" class="btn btn-danger" name='del' value='<?php echo $row["id"]; ?>'>削除</button>
   			</div>
   		</div>
   	</div>
@@ -67,16 +67,16 @@ while ($row = mysqli_fetch_assoc($query)){
                 <div class="form-froup">
                     <label>カテゴリー</label></br>
                     <select name="category" class="form-control">
-                    <optgroup>
-                        <?php
-                        $query = mysqli_query($link,'SELECT id,name FROM category');
-                        $count = 0;
-                        while($row = mysqli_fetch_array($query)){
-                            echo "<option value=",$row[0],">",$row[1],"</option>";
-                        }
-          ?>
-        </optgroup>
-      </select></br>
+                        <optgroup>
+                            <?php
+                            $query = mysqli_query($link,'SELECT id,name FROM category');
+                            $count = 0;
+                            while($row = mysqli_fetch_array($query)){
+                                echo "<option value=",$row[0],">",$row[1],"</option>";
+                            }
+                            ?>
+                        </optgroup>
+                    </select></br>
                 <div class="form-group">
                     <select name="dis_day" class="form-control">
                         <option value="7">割引なし</option>
@@ -89,27 +89,27 @@ while ($row = mysqli_fetch_assoc($query)){
                 </div>
                 <div class="form-froup">
                     <label>いくら割引ますか（割引がない場合は空欄）</label></br>
-                    <input type="number" name="dis_value" maxlength="100" class="form-control"></br>
+                    <input type="number" name="dis_value" maxlength="100" class="form-control" name=<?php echo $row["dis_value"]; ?>></br>
                 </div>
 
                 <div class="form-group">
                     <input name="day_limit" class="form-control" type="text" value="<?php echo $row["day_limit"]; ?> ">
                 </div>
                 <div class="form-group">
-                    <input name="comment" class="form-control" type="text" value="<?php $row["comment"]; ?>">
+                    <input name="comment" class="form-control" type="text" value="<?php echo $row["comment"]; ?>">
                 </div>
   			</div>
   			<div class="modal-footer">
-                <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>?Update</button>
   			</div>
   		</div>
   	</div>
   </div>
 <?php
 }
-  echo "<h4>商品数 $count</h4><hr>";
   echo "<tbody>";
   echo "</table>";
+  echo "<h4>商品数 $count</h4><hr>";
  //商品数
 ?>
 <!-- 表ここまで -->
