@@ -105,7 +105,7 @@ while ($row = mysqli_fetch_assoc($query)){
   		</div>
   	</div>
   </div>
-
+<?php
 }
   echo "<h4>商品数 $count</h4><hr>";
   echo "<tbody>";
