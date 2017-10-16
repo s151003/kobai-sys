@@ -87,7 +87,7 @@ while ($row = mysqli_fetch_assoc($query)){
                 </div>
                 <div class="form-froup">
                     <label>いくら割引ますか（割引がない場合は空欄）</label></br>
-                    <input type="number" name="dis_value" maxlength="100" class="form-control" name=<?php echo $row["dis_value"]; ?>></br>
+                    <input type="number" name="dis_value" maxlength="100" class="form-control" value="<?php echo $row["dis_value"]; ?>"></br>
                 </div>
 
                 <div class="form-group">
