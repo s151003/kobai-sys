@@ -1,9 +1,10 @@
 <form action="menu_changer.php" method="post">
 <?php
+require("../connect_db.php");
 require("../head.php");
 output("メニュー管理ページ");
-  DataTable("products");
- ?>
+DataTable("products");
+?>
 <!-- 表生成開始 -->
 <div class="container">
 <table id="products" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
@@ -31,7 +32,7 @@ while ($row = mysqli_fetch_assoc($query)){
   $name = $row["id"];
   
   //delete
-  echo <<<EOM
+?>
   <div class="modal fade" id="delete" tabindex="-1">
   	<div class="modal-dialog">
   		<div class="modal-content">
@@ -40,28 +41,62 @@ while ($row = mysqli_fetch_assoc($query)){
   				<h4 class="modal-title">商品の削除</h4>
   			</div>
   			<div class="modal-body">
-  				商品 <b>{$row["name"]}</b> を本当に削除しますか？
+  				商品 <b><?php echo $row["name"]; ?></b> を本当に削除しますか？
   			</div>
   			<div class="modal-footer">
   				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-				<button type="submit" class="btn btn-danger" name='del' value='$name'>削除</button>
+				<button type="submit" class="btn btn-danger" name='del' value='<?php echo $name; ?>'>削除</button>
   			</div>
   		</div>
   	</div>
   </div>
-EOM;
-    //edit
-      echo <<<EOM
   <div class="modal fade" id="edit" tabindex="-1">
   	<div class="modal-dialog">
   		<div class="modal-content">
   			<div class="modal-header">
   				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-  				<h4 class="modal-title">商品の削除</h4>
+  				<h4 class="modal-title">商品の情報を修正</h4>
   			</div>
   			<div class="modal-body">
                 <div class="form-group">
-                <input class="form-control" type="text" placeholder="{$row["name"]}">
+                    <input name="name" class="form-control" type="text" value="<?php echo $row["name"]; ?>">
+                </div>
+                <div class="form-group">
+                    <input name="value" class="form-control" type="number" value="<?php echo $row["value"]; ?>">
+                </div>
+                <div class="form-froup">
+                    <label>カテゴリー</label></br>
+                    <select name="category" class="form-control">
+                    <optgroup>
+                        <?php
+                        $query = mysqli_query($link,'SELECT id,name FROM category');
+                        $count = 0;
+                        while($row = mysqli_fetch_array($query)){
+                            echo "<option value=",$row[0],">",$row[1],"</option>";
+                        }
+          ?>
+        </optgroup>
+      </select></br>
+                <div class="form-group">
+                    <select name="dis_day" class="form-control">
+                        <option value="7">割引なし</option>
+                        <option value="1">月曜日</option>
+                        <option value="2">火曜日</option>
+                        <option value="3">水曜日</option>
+                        <option value="4">木曜日</option>
+                        <option value="5">金曜日</option>
+                    </select>
+                </div>
+                <div class="form-froup">
+                    <label>いくら割引ますか（割引がない場合は空欄）</label></br>
+                    <input type="number" name="dis_value" maxlength="100" class="form-control"></br>
+                </div>
+
+                <div class="form-group">
+                    <input name="day_limit" class="form-control" type="text" value="<?php echo $row["day_limit"]; ?> ">
+                </div>
+                <div class="form-group">
+                    <input name="comment" class="form-control" type="text" value="<?php $row["comment"]; ?>">
                 </div>
   			</div>
   			<div class="modal-footer">
@@ -70,7 +105,7 @@ EOM;
   		</div>
   	</div>
   </div>
-EOM;
+
 }
   echo "<h4>商品数 $count</h4><hr>";
   echo "<tbody>";
@@ -78,28 +113,6 @@ EOM;
  //商品数
 ?>
 <!-- 表ここまで -->
-<!-- モーダルウィンドウを起動するボタン -->
-<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#MODAL1">MODAL</button><br>
-
-<!-- ここからモーダル -->
-<div class="modal fade" id="MODAL1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-          ヘッダ
-      </div>
-      <div class="modal-body">
-          ボディ
-      </div>
-      <div class="modal-footer">
-          フッター
-      </div>
-
-    </div> <!-- modal-content -->
-  </div>  <!-- modal-dialog -->
-</div>  <!-- modal fade -->
-
 
 </br></br>
 <input class="btn btn-default" type="submit" value="送信ボタン">
