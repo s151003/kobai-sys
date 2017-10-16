@@ -12,7 +12,7 @@ DataTable("products");
 <thead><tr><th>#</th><th>商品名</th><th>価格</th><th>曜日割引</th><th>割引価格</th><th>修正</th><th>削除</th><th>予約受付数</th><th>販売受付</th></tr></thead>
 <?php
 $week = array("日", "月", "火", "水", "木", "金", "土","なし");
-$query = mysqli_query($link,'SELECT id,name,value,dis_day,dis_value,day_limit FROM products');
+$query = mysqli_query($link,'SELECT * FROM products');
 $count = 0;
 echo "<tbody>";
 while ($row = mysqli_fetch_assoc($query)){
@@ -29,7 +29,7 @@ while ($row = mysqli_fetch_assoc($query)){
   echo "<td>",$row["day_limit"],"</td>";
   echo "<td>予約</td>";
   echo "</tr>";
-  
+
   //delete
 ?>
   <div class="modal fade" id="delete" tabindex="-1">
@@ -59,21 +59,20 @@ while ($row = mysqli_fetch_assoc($query)){
   			<div class="modal-body">
               <div class="form-froup">
                 <label>名前</br></label>
-                <input required type="text" name="product" maxlength="100" class="form-control"></br>
+                <input required type="text" name="product" maxlength="100" class="form-control" value="<?php echo $row["name"]; ?>"></br>
               </div>
               <div class="form-froup">
                 <label>値段</label></br>
-                <input required type="number" name="value" maxlength="100" class="form-control"></br>
+                <input required type="number" name="value" maxlength="100" class="form-control" value="<?php echo $row["value"]; ?>"></br>
               </div>
               <div class="form-froup">
                 <label>カテゴリー</label></br>
                 <select name="category" class="form-control">
                 <optgroup>
                   <?php
-                  $query = mysqli_query($link,'SELECT id,name FROM category');
-                  $count = 0;
-                  while($row = mysqli_fetch_array($query)){
-                    echo "<option value=",$row[0],">",$row[1],"</option>";
+                  $result = mysqli_query($link,'SELECT id,name FROM category');
+                  while($cat = mysqli_fetch_array($result)){
+                    echo "<option value=",$cat[0],">",$cat[1],"</option>";
                   }
                   ?>
                 </optgroup>
@@ -81,7 +80,7 @@ while ($row = mysqli_fetch_assoc($query)){
               </div>
               <div class="form-froup">
                 <label>曜日割引</label></br>
-                <select name="discount" class="form-control">
+                <select name="dis_day" class="form-control">
                 <optgroup>
                   <option value="7">割引なし</option>
                   <option value="1">月曜日</option>
@@ -94,15 +93,15 @@ while ($row = mysqli_fetch_assoc($query)){
               </div>
               <div class="form-froup">
                 <label>いくら割引ますか（割引がない場合は空欄）</label></br>
-                <input type="number" name="dis_value" maxlength="100" class="form-control"></br>
+                <input type="number" name="dis_value" maxlength="100" class="form-control" value="<?php echo $row["dis_value"]; ?>"></br>
               </div>
               <div class="form-froup">
                 <label>一日あたりの販売個数</label></br>
-                <input required type="number" name="day_limit" maxlength="100" class="form-control"></br>
+                <input required type="number" name="day_limit" maxlength="100" class="form-control" value="<?php echo $row["day_limit"]; ?>"></br>
               </div>
               <div class="form-froup">
                 <label>ひとことコメント</br></label>
-                <input required type="text" name="comment" maxlength="100" class="form-control"></br>
+                <input required type="text" name="comment" maxlength="100" class="form-control" value="<?php echo $row["comment"]; ?>"></br>
               </div>
   			</div>
   			<div class="modal-footer">
