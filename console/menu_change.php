@@ -69,7 +69,6 @@ while ($row = mysqli_fetch_assoc($query)){
                         <optgroup>
                             <?php
                             $query = mysqli_query($link,'SELECT id,name FROM category');
-                            $count = 0;
                             while($row = mysqli_fetch_array($query)){
                                 echo "<option value=",$row[0],">",$row[1],"</option>";
                             }
