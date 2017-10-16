@@ -24,10 +24,11 @@ while ($row = mysqli_fetch_assoc($query)){
   echo "<td>",$week[$row["dis_day"]],"</td>"; //割引曜日
   echo "<td>",$row["dis_value"],"</td>";
   echo "<td><button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#edit\"><span class=\"glyphicon glyphicon-pencil\"></span></button></td>";
-  echo "<td>sakujo</tb>"; //checkbox
+  echo "<td><button type=</tb>"; //checkbox
   echo "<td>",$row["day_limit"],"</td>";
   echo "<td>予約</td>";
   echo "</tr>";
+  $name = $row["id"];
   // <span class=\"glyphicon glyphicon-pencil\"></span>
   echo <<<EOM
   <div class="modal fade" id="edit" tabindex="-1">
@@ -35,19 +36,20 @@ while ($row = mysqli_fetch_assoc($query)){
   		<div class="modal-content">
   			<div class="modal-header">
   				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-  				<h4 class="modal-title">修正</h4>
+  				<h4 class="modal-title">商品の削除</h4>
   			</div>
   			<div class="modal-body">
-  				ここに修正
+  				商品 <b>{$row["name"]}</b> を本当に削除しますか？
   			</div>
   			<div class="modal-footer">
   				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-  				<button class=\"btn btn-default\" type='submit' name='del' value='"$row["name"]"'>削除</button>
+				<button type="submit" class="btn btn-danger" name='del' value='$name'>削除</button>
   			</div>
   		</div>
   	</div>
   </div>
 EOM;
+
 }
   echo "<h4>商品数 $count</h4><hr>";
   echo "<tbody>";
