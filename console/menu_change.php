@@ -1,6 +1,5 @@
-<?php
-// Here your code !
 <form action="menu_changer.php" method="post">
+
 <?php
 require("../connect_db.php");
 require("../head.php");
