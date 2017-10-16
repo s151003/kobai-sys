@@ -23,15 +23,16 @@ while ($row = mysqli_fetch_assoc($query)){
   echo "<td>",$row["value"],"</td>"; //価格
   echo "<td>",$week[$row["dis_day"]],"</td>"; //割引曜日
   echo "<td>",$row["dis_value"],"</td>";
-  echo "<td><button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#edit\"><span class=\"glyphicon glyphicon-pencil\"></span></button></td>";
-  echo "<td><button type=</tb>"; //checkbox
+  echo "<td><button type=\"button\" class=\"btn btn-primary btn-xs\" data-toggle=\"modal\" data-target=\"#edit\"><span class=\"glyphicon glyphicon-pencil\"></span></button></td>";
+  echo "<td><button type=\"button\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#delete\"><span class=\"glyphicon glyphicon-trash\"></span></button></td>"; //checkbox
   echo "<td>",$row["day_limit"],"</td>";
   echo "<td>予約</td>";
   echo "</tr>";
   $name = $row["id"];
-  // <span class=\"glyphicon glyphicon-pencil\"></span>
+  
+  //delete
   echo <<<EOM
-  <div class="modal fade" id="edit" tabindex="-1">
+  <div class="modal fade" id="delete" tabindex="-1">
   	<div class="modal-dialog">
   		<div class="modal-content">
   			<div class="modal-header">
@@ -49,7 +50,27 @@ while ($row = mysqli_fetch_assoc($query)){
   	</div>
   </div>
 EOM;
-
+    //edit
+      echo <<<EOM
+  <div class="modal fade" id="edit" tabindex="-1">
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+  			<div class="modal-header">
+  				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+  				<h4 class="modal-title">商品の削除</h4>
+  			</div>
+  			<div class="modal-body">
+                <div class="form-group">
+                <input class="form-control" type="text" placeholder="{$row["name"]}">
+                </div>
+  			</div>
+  			<div class="modal-footer">
+                <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+EOM;
 }
   echo "<h4>商品数 $count</h4><hr>";
   echo "<tbody>";
