@@ -4,9 +4,6 @@ $username = "root";
 $password = "114514";
 $dbname = "koubai";
 
-ini_set("display_errors", On);
-error_reporting(E_ALL);
-
 $link = mysqli_connect($hostname, $username, $password, $dbname);
 
 if(!$link){
