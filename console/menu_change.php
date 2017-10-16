@@ -42,7 +42,7 @@ while ($row = mysqli_fetch_assoc($query)){
   			</div>
   			<div class="modal-footer">
   				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-  				<button class=\"btn btn-default\" type='submit' name='del' value='",$row["name"],"'>削除</button>
+  				<button class=\"btn btn-default\" type='submit' name='del' value='"$row["name"]"'>削除</button>
   			</div>
   		</div>
   	</div>
