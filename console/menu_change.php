@@ -43,7 +43,7 @@ while ($row = mysqli_fetch_assoc($query)){
 
 </div>
 </form>
-
+<?php
 function ModalSet($name,$id,$name,$value,$dis_value,$day_limit,$comment){
 echo <<<EOM
  <div class="modal fade" id="delete" tabindex="-1">
@@ -126,3 +126,4 @@ echo <<<EOM
   </div>
 EOM;
 }
+?>
