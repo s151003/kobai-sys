@@ -24,14 +24,15 @@ while ($row = mysqli_fetch_assoc($query)){
   echo "<td>",$row["value"],"</td>"; //価格
   echo "<td>",$week[$row["dis_day"]],"</td>"; //割引曜日
   echo "<td>",$row["dis_value"],"</td>";
-  echo "<td><button type=\"button\" class=\"btn btn-primary btn-xs\" data-toggle=\"modal\" data-target=\"#edit\"><span class=\"glyphicon glyphicon-pencil\"></span></button></td>";
-  echo "<td><button type=\"button\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#delete\"><span class=\"glyphicon glyphicon-trash\"></span></button></td>"; //checkbox
-  echo "<td>",$row["day_limit"],"</td>";
+  echo "<td><button type=\"button\" class=\"btn btn-primary btn-xs\" data-toggle=\"modal\" data-target=\"#edit".$row["id"]."\"><span class=\"glyphicon glyphicon-pencil\"></span></button></td>";
+  echo "<td><button type=\"button\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#delete".$row["id"]."\"><span class=\"glyphicon glyphicon-trash\"></span></button></td>"; //checkbox
+  echo "<td>".$row["day_limit"]."</td>";
   echo "<td>".$row["comment"]."</td>";
   echo "</tr>";
-  ModalSet("$row["name"]","$row["id"]","$row["name"]","$row["value"]","$row["dis_value"]","$row["day_limit"]","$row["comment"]");
-  echo "</tbody>";
+
+  ModalSet($row["name"],$row["id"],$row["name"],$row["value"],$row["dis_value"],$row["day_limit"],$row["comment"]);
 }
+  echo "</tbody>";
   echo "</table>";
   echo "<h4>商品数 $count</h4><hr>";
  //商品数
@@ -39,57 +40,56 @@ while ($row = mysqli_fetch_assoc($query)){
 <!-- 表ここまで -->
 
 </br></br>
-<input class="btn btn-default" type="submit" value="送信ボタン">
-
 </div>
 </form>
 <?php
 function ModalSet($name,$id,$name,$value,$dis_value,$day_limit,$comment){
-echo <<<EOM
- <div class="modal fade" id="delete" tabindex="-1">
-  	<div class="modal-dialog">
-  		<div class="modal-content">
-  			<div class="modal-header">
-  				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-  				<h4 class="modal-title">商品の削除</h4>
-  			</div>
-  			<div class="modal-body">
-  				商品 <b> {$name} </b> を本当に削除しますか？
-  			</div>
-  			<div class="modal-footer">
-  				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-				<button type="submit" class="btn btn-danger" name='del' value='{$id}'>削除</button>
-  			</div>
-  		</div>
-  	</div>
-  </div>
-  <div class="modal fade" id="edit" tabindex="-1">
-  	<div class="modal-dialog">
-  		<div class="modal-content">
-  			<div class="modal-header">
-  				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-  				<h4 class="modal-title">商品の情報を修正</h4>
-  			</div>
-  			<div class="modal-body">
-              <div class="form-froup">
-                <label>名前</br></label>
-                <input required type="text" name="product" maxlength="100" class="form-control" value="{$name}"></br>
-              </div>
-              <div class="form-froup">
-                <label>値段</label></br>
-                <input required type="number" name="value" maxlength="100" class="form-control" value="{$value}"></br>
-              </div>
-              <div class="form-froup">
-                <label>カテゴリー</label></br>
-                <select name="category" class="form-control">
-                <optgroup>
-                  <?php
-                  $result = mysqli_query($link,'SELECT id,name FROM category');
-                  while($row = mysqli_fetch_array($result)){
-                    echo "<option value=",$row[0],">",$row[1],"</option>";
-                  }
-                  ?>
-                </optgroup>
+	echo <<<EOM
+	 <div class="modal fade" id="delete{$id}" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+					<h4 class="modal-title">商品の削除</h4>
+				</div>
+					<div class="modal-body">
+					商品 <b> {$name} </b> を本当に削除しますか？
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+					<button type="submit" class="btn btn-danger" name='del{$id}' value='{$id}'>削除</button>
+				</div>
+			</div>
+		</div>
+	  </div>
+	  <div class="modal fade" id="edit{$id}" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+					<h4 class="modal-title">商品の情報を修正</h4>
+				</div>
+				<div class="modal-body">
+				  <div class="form-froup">
+					<label>名前</br></label>
+					<input required type="text" name="product{$id}" maxlength="100" class="form-control" value="{$name}"></br>
+				  </div>
+				  <div class="form-froup">
+					<label>値段</label></br>
+					<input required type="number" name="value{$id}" maxlength="100" class="form-control" value="{$value}"></br>
+				  </div>
+				  <div class="form-froup">
+					<label>カテゴリー</label></br>
+					<select name="category{$id}" class="form-control">
+					<optgroup>
+EOM;
+			require("../connect_db.php");
+			$result = mysqli_query($link,'SELECT id,name FROM category');
+                while($row = mysqli_fetch_array($result)){
+					echo "<option value=".$row[0].">".$row[1]."</option>";
+                }
+			echo <<<EOM
+				</optgroup>
               </select></br>
               </div>
               <div class="form-froup">
@@ -107,19 +107,19 @@ echo <<<EOM
               </div>
               <div class="form-froup">
                 <label>いくら割引ますか（割引がない場合は空欄）</label></br>
-                <input type="number" name="dis_value" maxlength="100" class="form-control" value="{$dis_value}; ?>"></br>
+                <input type="number" name="dis_value{$id}" maxlength="100" class="form-control" value="{$dis_value}"></br>
               </div>
               <div class="form-froup">
                 <label>一日あたりの販売個数</label></br>
-                <input required type="number" name="day_limit" maxlength="100" class="form-control" value="{$day_limit}"></br>
+                <input required type="number" name="day_limit{$id}" maxlength="100" class="form-control" value="{$day_limit}"></br>
               </div>
               <div class="form-froup">
                 <label>ひとことコメント</br></label>
-                <input required type="text" name="comment" maxlength="100" class="form-control" value="{$comment}"></br>
+                <input required type="text" name="comment{$id}" maxlength="100" class="form-control" value="{$comment}"></br>
               </div>
   			</div>
   			<div class="modal-footer">
-                <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                <button type="submit" name="id" value='{$id}' class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
   			</div>
   		</div>
   	</div>
