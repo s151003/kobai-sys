@@ -57,7 +57,7 @@ function ModalSet($name,$id,$name,$value,$dis_value,$day_limit,$comment){
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-					<button type="submit" class="btn btn-danger" name='del{$id}' value='{$id}'>削除</button>
+					<button type="submit" class="btn btn-danger" name='del' value='{$id}'>削除</button>
 				</div>
 			</div>
 		</div>
@@ -94,7 +94,7 @@ EOM;
               </div>
               <div class="form-froup">
                 <label>曜日割引</label></br>
-                <select name="dis_day" class="form-control">
+                <select name="dis_day{$id}" class="form-control">
                 <optgroup>
                   <option value="7">割引なし</option>
                   <option value="1">月曜日</option>
@@ -119,7 +119,7 @@ EOM;
               </div>
   			</div>
   			<div class="modal-footer">
-                <button type="submit" name="id" value='{$id}' class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                <button type="submit" name="id" value="{$id}" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
   			</div>
   		</div>
   	</div>
