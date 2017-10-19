@@ -30,7 +30,7 @@ while ($row = mysqli_fetch_assoc($query)){
   echo "<td>".$row["comment"]."</td>";
   echo "</tr>";
 
-  ModalSet($row["name"],$row["id"],$row["name"],$row["value"],$row["dis_value"],$row["day_limit"],$row["comment"]);
+  ModalSet($row["name"],$row["id"],$row["value"],$row["dis_value"],$row["day_limit"],$row["comment"]);
 }
   echo "</tbody>";
   echo "</table>";
@@ -43,7 +43,7 @@ while ($row = mysqli_fetch_assoc($query)){
 </div>
 </form>
 <?php
-function ModalSet($name,$id,$name,$value,$dis_value,$day_limit,$comment){
+function ModalSet($name,$id,$value,$dis_value,$day_limit,$comment){
 	echo <<<EOM
 	 <div class="modal fade" id="delete{$id}" tabindex="-1">
 		<div class="modal-dialog">
