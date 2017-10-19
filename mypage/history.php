@@ -3,6 +3,8 @@
   require("../head.php");
   output("予約履歴");
 
+
+  LoginVerify($_SESSION['sid']);
   $user_id="aki"; //dummy
 
   $query = "SELECT id FROM `member` WHERE `user_id` = '$user_id'";
