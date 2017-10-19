@@ -76,16 +76,17 @@ function DataTable($name){
 EOM;
 }
 
-function CategoryCard($name,$comment,$id){
+function ProductCard($name,$comment,$id,$img){
   echo <<<EOM
-   <div class="col-md-4">
-    <div class="thumbnail">
-      <div class="caption">
+	<div class="col-md-4">
+		<div class="thumbnail">
+			<img src="$img">
+			<div class="caption">
         <h3>$name</h3>
         <p>$comment</p>
         <p><a href="products_list.php?cat=$id" class="btn btn-primary" role="button">こちら</a></p>
-      </div>
-    </div>
-    </div>
+			</div>
+		</div>
+	</div>
 EOM;
 }
