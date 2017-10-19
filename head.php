@@ -92,7 +92,7 @@ EOM;
 
 function LoginVerify($session){
   if(!isset($session)){
-    header('location: /kobai-sys/login.php?err=login');
+    header('location: /kobai-sys/mypage/login.php?err=login');
     exit();
   }
 }

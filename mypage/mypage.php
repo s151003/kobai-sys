@@ -2,6 +2,7 @@
   require("../head.php");
   output("マイページ");
   require("../connect_db.php");
+  LoginVerify($_SESSION['sid']);
 ?>
 <body>
   <div class="container">

@@ -3,6 +3,7 @@
 	require("../head.php");
 	output("商品ページ");
 	$cat = $_GET['cat'];
+	LoginVerify($_SESSION['sid']);
 ?>
 	<!-- レイアウトが崩れないように画像の縦幅を固定 -->
 	<style type="text/css">
