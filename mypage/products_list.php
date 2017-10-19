@@ -3,7 +3,7 @@
 	require("../head.php");
 	output("商品ページ");
 	$cat = $_GET['cat'];
-	
+
 	$query = mysqli_query($link,"SELECT * FROM `products` WHERE `category` = '$cat'");
 	echo "<div class=\"container\">";
 	echo "<div class=\"row\">";
@@ -11,7 +11,13 @@
 		$name = $row['name'];
 		$comment = $row['comment'];
 		$id = $row['id'];
-		CategoryCard("$name","$comment","$id");
+		$img = "../imgs/".$row['id'].".jpg";
+
+		//画像がなかったら$imgをダミー画像に
+		if(!$get_contents = @file_get_contents($img)){
+			$img = "../imgs/not_found.jpg";
+		}
+		ProductCard("$name","$comment","$id","$img");
     }
       echo "</div>";
 	  echo "</div>";
