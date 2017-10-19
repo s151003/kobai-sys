@@ -15,7 +15,7 @@
         $name = $row['name'];
         $comment = $row['comment'];
         $id = $row['id'];
-        CategoryCard("$name","$comment","$id");
+    		ProductCard("$name","$comment","$id","");
         }
       echo "</div>";
      ?>
