@@ -105,7 +105,7 @@ https://secure.php.net/manual/ja/function.password-hash.php
 ~~予約画面のセレクトボックスが手打ち~~
 ~~DBからメニューを取得して表示する~~
 
-# emojiを使うなら
+# コミットコメント
 #### Fix 🔧
 動かない機能を修正
 #### Clean :shower:
