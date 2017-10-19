@@ -4,7 +4,6 @@
 function output($title){
       session_start();
 
-
       echo <<<EOM
       <!DOCTYPE html>
       <meta charset="utf-8">
@@ -52,7 +51,7 @@ EOM;
             echo "<li><a href=\"/kobai-sys/mypage/regist_form.php\"><span class=\"glyphicon glyphicon-user\"></span> 登録</a></li>";
             echo "<li><a href=\"/kobai-sys/mypage/login.php\"><span class=\"glyphicon glyphicon-log-in\"></span> ログイン</a></li>";
           }
-echo <<<EOM
+          echo <<<EOM
           </ul>
         </div>
       </nav>
@@ -79,7 +78,7 @@ EOM;
 function ProductCard($name,$comment,$id,$img){
   echo <<<EOM
 	<div class="col-md-4">
-		<div class="thumbnail">
+    <div class="thumbnail">
 			<img src="$img">
 			<div class="caption">
         <h3>$name</h3>
@@ -89,4 +88,11 @@ function ProductCard($name,$comment,$id,$img){
 		</div>
 	</div>
 EOM;
+}
+
+function LoginVerify($session){
+  if(!isset($session)){
+    header('location: /kobai-sys/login.php?err=login');
+    exit();
+  }
 }
