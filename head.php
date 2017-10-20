@@ -75,7 +75,7 @@ function DataTable($name){
 EOM;
 }
 
-function ProductCard($name,$comment,$id,$img){
+function ProductCard($name,$comment,$id,$img,$value){
   echo <<<EOM
 	<div class="col-md-4">
     <div class="thumbnail">
