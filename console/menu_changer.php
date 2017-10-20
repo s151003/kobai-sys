@@ -29,7 +29,7 @@ if (isset($_POST['id'])){
   $dis_value = $_POST['dis_value'.$id];
   $day_limit = $_POST['day_limit'.$id];
   $comment = $_POST['comment'.$id];
-  mysqli_query($link,"UPDATE products SET name='$name',value='$value',category='$category',dis_day='$dis_day',dis_valu='$dis_value',day_limit='$day_limit',comment='$comment' WHERE id='$id'");
+  mysqli_query($link,"UPDATE products SET name='$name',value='$value',category='$category',dis_day='$dis_day',dis_value='$dis_value',day_limit='$day_limit',comment='$comment' WHERE id='$id'");
   echo "更新";
 }
 ?>
