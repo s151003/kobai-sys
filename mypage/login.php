@@ -8,11 +8,9 @@ if (isset($_SESSION['sid'])){
 }
 ?>
 <div class="container">
-  <?php
-  if ($_GET['err'] == "login"){
-    echo "<div class=\"panel panel-danger\"><div class=\"panel-heading\">ログインエラー</div><div class=\"panel-body\">ログインしていないかセッションの有効期限が切れたためもう一度ログインしてください。</div></div>";
-  }
-  ?>
+  <?php if (@$_GET['err'] == "login"){
+    echo "<div class=\"panel panel-danger\"><div class=\"panel-heading\">ログインエラー</div><div class=\"panel-body\">ログインしていないかセッションの有効期限が切れたため、もう一度ログインしてください。</div></div>";
+  } ?>
 <form action="auth.php" method="POST">
   <h2>ログイン</h2>
   <hr>
