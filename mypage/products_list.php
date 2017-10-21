@@ -42,12 +42,12 @@ function ProductCard($name,$comment,$id,$img,$value){
 
 	    <h3>$name</h3>
 	    <p>$comment</p>
-	    <Div Align="right"></div>
-	    </div>
-	    <div class="panel-footer">
-	    <font size="5"><b><span class="glyphicon glyphicon-yen aria-hidden="true"></span>$value</b></font><Div Align="right"><a href="product.php?id=$id" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 追加</a></p></font></div></div>
+
+	  </div>
+	  <div class="panel-footer">
+			<div style="float:left;"><font size="5"><b><span class="glyphicon glyphicon-yen aria-hidden="true"></span>$value</b></font></div><div style="text-align:right;"><a href="product.php?id=$id" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 追加</a></p></font></div></div>
 		</div>
 	  </div>
-	EOM;
+EOM;
 	}
 	?>
