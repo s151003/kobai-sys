@@ -59,6 +59,7 @@ EOM;
 EOM;
 }
 
+//DataTabelsを使いたいときにテーブルの名前を入れて呼び出す
 function DataTable($name){
     echo <<<EOM
     <script>  $(document).ready(function() {
@@ -75,18 +76,23 @@ function DataTable($name){
 EOM;
 }
 
-function ProductCard($name,$comment,$id,$img,$value){
+function CategoryCard($name,$comment,$id){
   echo <<<EOM
 	<div class="col-md-4">
+  <div class="panel panel-primary">
+    <div class="panel-heading">$name</div>
+    <div class="panel-body">
     <div class="thumbnail">
-			<img src="$img">
 			<div class="caption">
         <h3>$name</h3>
-        <p>$comment</p>
+        <p></p>
         <p><a href="products_list.php?cat=$id" class="btn btn-primary" role="button">こちら</a></p>
-			</div>
-		</div>
+      </div>
+    </div>
+    </div>
+    <div class="panel-footer">$comment</div>
 	</div>
+  </div>
 EOM;
 }
 
