@@ -76,26 +76,6 @@ function DataTable($name){
 EOM;
 }
 
-function CategoryCard($name,$comment,$id){
-  echo <<<EOM
-	<div class="col-md-4">
-  <div class="panel panel-primary">
-    <div class="panel-heading">$name</div>
-    <div class="panel-body">
-    <div class="thumbnail">
-			<div class="caption">
-        <h3>$name</h3>
-        <p></p>
-        <p><a href="products_list.php?cat=$id" class="btn btn-primary" role="button">こちら</a></p>
-      </div>
-    </div>
-    </div>
-    <div class="panel-footer">$comment</div>
-	</div>
-  </div>
-EOM;
-}
-
 function LoginVerify($session){
   if(!isset($session)){
     header('location: /kobai-sys/mypage/login.php?err=login');
