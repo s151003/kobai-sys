@@ -83,9 +83,17 @@ function ProductCard($name,$comment,$id,$img,$value){
 			<div class="pull-right">
 			<select name="{$id}" class="form-control" style="width: 65px">
 			<optgroup>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="13">13</option>
+EOM;
+			if($daylimit<5){
+				for($i=1; $i<=$daylimit; $i++){
+					echo "<option value=\"".$i."\">".$i."</option>";
+				}
+			}else{
+				for($i=1; $i<=5; $i++){
+					echo "<option value=\"".$i."\">".$i."</option>";
+				}
+			}
+			echo <<<EOM
 			<optgroup>
 			</select></div>
 			<div style="text-align:right;">
