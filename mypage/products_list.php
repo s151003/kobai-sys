@@ -47,7 +47,6 @@ function DayLimit($product_id){
 }
 
 function ProductCard($name,$comment,$id,$img,$value){
-
 	  echo <<<EOM
 		<div class="col-md-4">
 	  <div class="panel panel-primary">
@@ -56,10 +55,8 @@ function ProductCard($name,$comment,$id,$img,$value){
 	    <div class="thumbnail">
 	      <img src="$img">
 	    </div>
-
 	    <h3>$name</h3>
 	    <p>$comment</p>
-
 	  </div>
 	  <div class="panel-footer">
 			<div style="float:left;"><font size="5"><b><span class="glyphicon glyphicon-yen aria-hidden="true"></span>$value</b></font></div><div style="text-align:right;"><a href="product.php?id=$id" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 追加</a></p></font></div></div>
@@ -67,4 +64,4 @@ function ProductCard($name,$comment,$id,$img,$value){
 	  </div>
 EOM;
 	}
-	?>
+?>
