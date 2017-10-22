@@ -4,8 +4,8 @@ output("カート");
 require('../connect_db.php');
 $userid = $_SESSION['sid'];
 
-if(isset($_GET['id'])){
-  $add = $_GET['id'].",".$_POST[$_GET['id']];
+if(isset($_POST['add'])){
+  $add = $_POST['add'].",".$_POST[$_POST['add']];
   @$count = count($_SESSION['cart'][$userid]);
   $_SESSION['cart'][$userid][$count] = explode(',',$add);
 }
@@ -38,7 +38,9 @@ if(isset($_GET['id'])){
         <a class="btn btn-info btn-lg btn-block" href="/kobai-sys/mypage/checkout.php"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> 予約確定！</a>
     </div>
     </div>
+
 EOM;
+
     }else{
       echo "</table>";
       echo "<center><h3>カートは空です</h3></center>";
