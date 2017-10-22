@@ -54,7 +54,7 @@ function ProductCard($name,$comment,$id,$img,$value){
 		$result = mysqli_query($link,"SELECT id,name,value,dis_day,dis_value FROM products WHERE id = '$id'");
 		$row = mysqli_fetch_array($result);
 		if ($row[3] == $weekno) {
-			$display = "<b>（本日".$row[4]."円引き!）</b>";
+			$display = "</br><b>（本日".$row[4]."円引き！）</b>";
 			$row[2] = $row[2]-$row[4];
 			$value = "<font size=\"5\" color=\"#FF0000\">".$row[2]."</font>";
 		} else {
@@ -79,7 +79,7 @@ function ProductCard($name,$comment,$id,$img,$value){
 			<optgroup>
 				<option value="1">1</option>
 				<option value="2">2</option>
-				<option value="3">13</option>
+				<option value="13">13</option>
 			<optgroup>
 			</select></div>
 			<div style="text-align:right;">
