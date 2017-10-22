@@ -45,7 +45,7 @@ function output($title){
 EOM;
           //どのページからも見られるのでフルパス
           if (isset($_SESSION['sid'])){
-            echo "<button type=\"button\" class=\"btn btn-default navbar-btn\" href=\"/kobai-sys/mypage/history.php\">あなたの予約履歴</a></button>";
+            echo "<a class=\"btn btn-default navbar-btn\" href=\"/kobai-sys/mypage/cart.php\"><span class=\"glyphicon glyphicon-shopping-cart\" aria-hidden=\"true\"></span> カート</a>";
             echo "<a href=\"/kobai-sys/mypage/mypage.php\"><p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</p></a>";
           }else {
             echo "<li><a href=\"/kobai-sys/mypage/regist_form.php\"><span class=\"glyphicon glyphicon-user\"></span> 登録</a></li>";
