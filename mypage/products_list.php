@@ -7,6 +7,7 @@
 	DayLimit("4");
 ?>
 	<!-- レイアウトが崩れないように画像の縦幅を固定 -->
+
 	<style type="text/css">
 	img {
 	  max-height: 200px;
@@ -48,6 +49,7 @@ function DayLimit($product_id){
 
 function ProductCard($name,$comment,$id,$img,$value){
 	  echo <<<EOM
+		<form action="cart.php?id=$id" method="post">
 		<div class="col-md-4">
 	  <div class="panel panel-primary">
 	  <div class="panel-heading"><div style="float:left;">$name</div><div style="text-align:right;">本日残り *個</div></div>
@@ -59,7 +61,18 @@ function ProductCard($name,$comment,$id,$img,$value){
 	    <p>$comment</p>
 	  </div>
 	  <div class="panel-footer">
-			<div style="float:left;"><font size="5"><b><span class="glyphicon glyphicon-yen aria-hidden="true"></span>$value</b></font></div><div style="text-align:right;"><a href="product.php?id=$id" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 追加</a></p></font></div></div>
+			<div style="float:left;"><font size="5"><b><span class="glyphicon glyphicon-yen aria-hidden="true"></span>$value</b></font></div>
+			<div class="pull-right">
+			<select name="{$id}" class="form-control" style="width: 65px">
+			<optgroup>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">13</option>
+			<optgroup>
+			</select></div>
+			<div style="text-align:right;">
+			<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 追加</button></p></font>
+			</div></div>
 		</div>
 	  </div>
 EOM;
