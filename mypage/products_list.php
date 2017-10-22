@@ -48,6 +48,18 @@ function DayLimit($product_id){
 }
 
 function ProductCard($name,$comment,$id,$img,$value){
+		//当日の曜日番号
+		$weekno = date('w');
+		require("../connect_db.php");
+		$result = mysqli_query($link,"SELECT id,name,value,dis_day,dis_value FROM products WHERE id = '$id'");
+		$row = mysqli_fetch_array($result);
+		if ($row[3] == $weekno) {
+			$display = "<b>（本日".$row[4]."円引き!）</b>";
+			$row[2] = $row[2]-$row[4];
+			$value = "<font size=\"5\" color=\"#FF0000\">".$row[2]."</font>";
+		} else {
+			$display = "";
+		};
 	  echo <<<EOM
 		<form action="cart.php?id=$id" method="post">
 		<div class="col-md-4">
@@ -58,7 +70,7 @@ function ProductCard($name,$comment,$id,$img,$value){
 	      <img src="$img">
 	    </div>
 	    <h3>$name</h3>
-	    <p>$comment</p>
+	    <p>{$comment}{$display}</p>
 	  </div>
 	  <div class="panel-footer">
 			<div style="float:left;"><font size="5"><b><span class="glyphicon glyphicon-yen aria-hidden="true"></span>$value</b></font></div>
