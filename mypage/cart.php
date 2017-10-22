@@ -1,7 +1,9 @@
 <?php
 require("../head.php");
-output("カート");
 require('../connect_db.php');
+output("カート");
+LoginVerify($_SESSION['sid']);
+
 $userid = $_SESSION['sid'];
 
 if(isset($_POST['add'])){
