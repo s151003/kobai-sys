@@ -4,7 +4,7 @@
 	output("商品ページ");
 	$cat = $_GET['cat'];
 	LoginVerify($_SESSION['sid']);
-	DayLimit("4");
+
 ?>
 	<!-- レイアウトが崩れないように画像の縦幅を固定 -->
 
@@ -35,16 +35,20 @@
 
 function DayLimit($product_id){
 		require("../connect_db.php");
+
+		//商品の一日制限個数取得
 		$result = mysqli_query($link,"SELECT day_limit FROM `products` WHERE `id` = '$product_id'");
 		$row = mysqli_fetch_assoc($result);
 		$day_limit = $row['day_limit'];
-
+		//
 		$today = date("Y-m-d");
 		$result = mysqli_query($link,"SELECT * FROM `yoyaku` WHERE `date` BETWEEN '$today 00:00:00' AND '$today 23:59:59' AND `product`= '$product_id'");
+		$today_quantity = 0;
 		while($row = mysqli_fetch_assoc($result)){
 			$today_quantity = $today_quantity + $row['quantity'];
 		}
-		@$remaining = $day_limit - $today_quantity;
+		$remaining = $day_limit - $today_quantity;
+		return $remaining;
 }
 
 function ProductCard($name,$comment,$id,$img,$value){
@@ -60,11 +64,13 @@ function ProductCard($name,$comment,$id,$img,$value){
 		} else {
 			$display = "";
 		};
+
+		$daylimit = DayLimit($id);
 	  echo <<<EOM
-		<form action="cart.php?id=$id" method="post">
+		<form action="cart.php" method="post">
 		<div class="col-md-4">
 	  <div class="panel panel-primary">
-	  <div class="panel-heading"><div style="float:left;">$name</div><div style="text-align:right;">本日残り *個</div></div>
+	  <div class="panel-heading"><div style="float:left;">$name</div><div style="text-align:right;">本日残り {$daylimit}個</div></div>
 	  <div class="panel-body">
 	    <div class="thumbnail">
 	      <img src="$img">
@@ -83,7 +89,7 @@ function ProductCard($name,$comment,$id,$img,$value){
 			<optgroup>
 			</select></div>
 			<div style="text-align:right;">
-			<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 追加</button></p></font>
+			<button type="submit" name="add" value="{$id}" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 追加</button></p></font>
 			</div></div>
 		</div>
 	  </div>
