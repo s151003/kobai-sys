@@ -3,9 +3,12 @@ require("../head.php");
 output("カート");
 require('../connect_db.php');
 $userid = $_SESSION['sid'];
-if(isset($_GET["add"])){
+
+if(isset($_GET['id'])){
+  $add = $_GET['id'].",".$_POST[$_GET['id']];
+  echo $add;
   $count = count($_SESSION['cart'][$userid]);
-  $_SESSION['cart'][$userid][$count] = explode(',',$_GET["add"]);
+  $_SESSION['cart'][$userid][$count] = explode(',',$add);
 }
 ?>
 <div
