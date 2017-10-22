@@ -1,7 +1,7 @@
 <?php
 $hostname = "127.0.0.1";
 $username = "root";
-$password = "114514";
+$password = "";
 $dbname = "koubai";
 
 $link = mysqli_connect($hostname, $username, $password, $dbname);
@@ -18,4 +18,6 @@ if(!$link){
 }else{
 	//MySQLで使う文字コードを設定
 	mysqli_set_charset($link,"utf8");
+	//PHPの時刻を日本時間へ設定
+	date_default_timezone_set('Asia/Tokyo');
 }
