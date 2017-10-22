@@ -30,9 +30,13 @@ if(isset($_GET['id'])){
     echo <<<EOM
     </table>
     <div class="row">
+    <div class="col-md-12">
     <hr>
         <h3>計 {$key} 点</h3>
         <div style="text-align:right;"><h2>{$total}円</h2></div>
+        </br>
+        <a class="btn btn-info btn-lg btn-block" href="/kobai-sys/mypage/checkout.php"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> 予約確定！</a>
+    </div>
     </div>
 EOM;
     }else{
