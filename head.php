@@ -37,8 +37,17 @@ function output($title){
           </div>
           <ul class="nav navbar-nav">
             <li class="active">
-            <li><a href="/kobai-sys/mypage/login.php">ログイン</a></li>
-            <li><a href="/kobai-sys/mypage/regist_form.php">新規登録</a></li>
+EOM;
+          if (isset($_SESSION['sid'])){
+            echo "<li><a href=\"/kobai-sys/mypage/mypage.php\">マイページ</a></li>";
+            echo "<li><a href=\"/kobai-sys/mypage/history.php\">予約履歴</a></li>";
+
+          }else {
+            echo "<li><a href=\"/kobai-sys/mypage/login.php\">ログイン</a></li>";
+            echo "<li><a href=\"/kobai-sys/mypage/regist_form.php\">新規登録</a></li>";
+
+          }
+          echo <<<EOM
             <li><a href="/kobai-sys/console">管理画面</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
