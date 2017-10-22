@@ -6,7 +6,7 @@ $userid = $_SESSION['sid'];
 
 if(isset($_GET['id'])){
   $add = $_GET['id'].",".$_POST[$_GET['id']];
-  $count = count($_SESSION['cart'][$userid]);
+  @$count = count($_SESSION['cart'][$userid]);
   $_SESSION['cart'][$userid][$count] = explode(',',$add);
 }
 
@@ -16,6 +16,7 @@ if(isset($_GET['id'])){
 <table class="table table-condensed">
   <thead><th>#</th><th>商品</th><th>数量</th><th>価格</th><thead>
     <?php
+    if(isset($_SESSION['cart'][$userid])){
     $total = 0;
     foreach($_SESSION['cart'][$userid] as $key => $value){
       $query = "SELECT * FROM products WHERE id = '$value[0]'";
@@ -34,8 +35,10 @@ if(isset($_GET['id'])){
         <div style="text-align:right;"><h2>{$total}円</h2></div>
     </div>
 EOM;
-?>
-<?php
+    }else{
+      echo "</table>";
+      echo "<center><h3>カートは空です</h3></center>";
+    }
 
 //カート全削除
 if(@$_GET["del"] == 1){
