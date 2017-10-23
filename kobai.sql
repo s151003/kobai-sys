@@ -17,10 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `koubai`
+-- Database: `kobai 作成`
+CREATE DATABASE kobai;
 --
 
 -- --------------------------------------------------------
+
+
 
 --
 -- テーブルの構造 `category`
