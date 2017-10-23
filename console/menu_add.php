@@ -50,9 +50,10 @@
     </select></br>
   </div>
   <div class="form-froup">
-    <label>いくら割引ますか（割引がない場合は0）</label></br>
-    <input type="number" name="dis_value" maxlength="100" class="form-control" value="0"></br>
-  </div>
+    <label>いくら割引ますか</label></br>
+    <input type="number" name="dis_value" maxlength="100" class="form-control" value="0">
+    <small class="form-text text-muted">（割引がない場合は0）</small>
+  </div></br>
   <div class="form-froup">
     <label>一日あたりの販売個数</label></br>
     <input required type="number" name="day_limit" maxlength="100" class="form-control"></br>
