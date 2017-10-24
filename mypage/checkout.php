@@ -19,7 +19,9 @@ echo <<<EOM
   </div>
   <div class="panel-body">
 EOM;
+
 if(isset($_SESSION['cart'][$userid])){
+  $total_sum = 0;
   foreach($_SESSION['cart'][$userid] as $key => $value){
     //予約データインサート
     $datetime = date("Y-m-d H:i:s");
@@ -27,15 +29,22 @@ if(isset($_SESSION['cart'][$userid])){
     $result = mysqli_query($link,$query);
 
     //結果表示
-
-    echo $value[0]." * ".$value[1] ."=". $value[0]*$value[1];
+    $query = "SELECT name,value FROM products WHERE id = '$value[0]'";
+    $result = mysqli_query($link,$query);
+    $product = mysqli_fetch_array($result);
+    $sum = $product['value'] * $value[1];
+    echo $product['name'].$value[1] ."個 ". $sum ."円</br>";
+    $total_sum = $total_sum + $sum;
   };
+}else{
+    header( "Location: /kobai-sys/mypage/cart.php" );
+}
+
   unset($_SESSION['cart']);
   echo <<<EOM
-		予約が完了しました。
+    <b>計<b>{$total_sum}円</b> 予約が完了しました。</br>
 	</div>
 </div>
 </div>
 </div>
 EOM;
-}
