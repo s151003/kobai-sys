@@ -14,21 +14,24 @@
 	}
 	</style>
 <?php
-	$query = mysqli_query($link,"SELECT * FROM `products` WHERE `category` = '$cat'");
+	$result = mysqli_query($link,"SELECT * FROM `products` WHERE `category` = '$cat'");
 	echo "<div class=\"container\">";
 	echo "<div class=\"row\">";
-  while ($row = mysqli_fetch_assoc($query)){
-		$name = $row['name'];
-		$comment = $row['comment'];
-		$id = $row['id'];
-		$value = $row['value'];
-		$img = "../imgs/".$row['id'].".jpg";
-		//画像がなかったら$imgをダミー画像に
-		if(!$get_contents = @file_get_contents($img)){
-			$img = "../imgs/not_found.jpg";
+	if (isset($result)){
+	  while ($row = mysqli_fetch_assoc($result)){
+			$name = $row['name'];
+			$comment = $row['comment'];
+			$id = $row['id'];
+			$value = $row['value'];
+			$img = "../imgs/".$row['id'].".jpg";
+			//画像がなかったら$imgをダミー画像に
+			if(!$get_contents = @file_get_contents($img)){
+				$img = "../imgs/not_found.jpg";
 		}
-		ProductCard("$name","$comment","$id","$img","$value");
-
+			ProductCard("$name","$comment","$id","$img","$value");
+		}
+	}else{
+		echo "a";
 	}
   echo "</div>";
 	echo "</div>";
@@ -84,21 +87,36 @@ function ProductCard($name,$comment,$id,$img,$value){
 			<select name="{$id}" class="form-control" style="width: 65px">
 			<optgroup>
 EOM;
-			if($daylimit<5){
-				for($i=1; $i<=$daylimit; $i++){
-					echo "<option value=\"".$i."\">".$i."</option>";
+			if(!$daylimit==0){
+				if($daylimit<5){
+					for($i=1; $i<=$daylimit; $i++){
+						echo "<option value=\"".$i."\">".$i."</option>";
+					}
+				}else{
+					for($i=1; $i<=5; $i++){
+						echo "<option value=\"".$i."\">".$i."</option>";
+					}
 				}
+				echo <<<EOM
+				<optgroup>
+				</select></div>
+				<div style="text-align:right;">
+				<button type="submit" name="add" value="{$id}" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 追加</button></p></font>
+				</div>
+EOM;
 			}else{
-				for($i=1; $i<=5; $i++){
-					echo "<option value=\"".$i."\">".$i."</option>";
-				}
+				echo <<<EOM
+				<optgroup>
+				</select></div>
+				<div style="text-align:right;">
+				<button type="button" name="add" disabled="disabled" class="btn btn-danger"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 売切</button></p>
+				</div>
+EOM;
 			}
+
 			echo <<<EOM
-			<optgroup>
-			</select></div>
-			<div style="text-align:right;">
-			<button type="submit" name="add" value="{$id}" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 追加</button></p></font>
-			</div></div>
+
+			</div>
 		</div>
 	  </div>
 EOM;
