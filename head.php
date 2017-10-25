@@ -92,11 +92,10 @@ function LoginVerify($session){
 }
 
 function AdminVerify($id){
-  $result = mysqli_query($link,"SELECT admin FROM member WHERE user_id = $id");
+  require_once("../connect_db.php");
+  $query = "SELECT admin FROM member WHERE user_id = '$id'";
+  $result = mysqli_query($link,$query);
   $row = mysqli_fetch_array($result);
   if($row['admin'] == 0){
-    echo "0";
-    header('location: /kobai-sys/mypage/login.php?err=you_dont_have_permission');
-    exit();
   }
 }
