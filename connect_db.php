@@ -2,7 +2,7 @@
 $hostname = "127.0.0.1";
 $username = "root";
 $password = "";
-$dbname = "koubai";
+$dbname = "kobai";
 
 $link = mysqli_connect($hostname, $username, $password, $dbname);
 
