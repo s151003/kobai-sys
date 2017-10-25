@@ -19,6 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `kobai 作成`
 CREATE DATABASE kobai;
+USE kobai;
 --
 
 -- --------------------------------------------------------
@@ -110,8 +111,8 @@ INSERT INTO `products` (`id`, `name`, `value`, `dis_day`, `dis_value`, `day_limi
 CREATE TABLE `yoyaku` (
   `id` int(255) NOT NULL,
   `user_id` int(255) NOT NULL,
-  `products` varchar(255) NOT NULL,
-  `quantity` varchar(255) NOT NULL,
+  `product` int(255) NOT NULL,
+  `quantity` int(255) NOT NULL,
   `date` datetime NOT NULL,
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -120,7 +121,7 @@ CREATE TABLE `yoyaku` (
 -- テーブルのデータのダンプ `yoyaku`
 --
 
-INSERT INTO `yoyaku` (`id`, `user_id`, `products`, `quantity`, `date`, `status`) VALUES
+INSERT INTO `yoyaku` (`id`, `user_id`, `product`, `quantity`, `date`, `status`) VALUES
 (1000, 6, '3', '1', '2017-10-28 06:29:48', '1'),
 (1001, 6, '4', '8', '2017-10-13 00:00:00', '2');
 
