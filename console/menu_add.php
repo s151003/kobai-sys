@@ -1,10 +1,8 @@
-<head>
   <?php
-  require("../connect_db.php");
   require("../head.php");
+  AdminVerify($_SESSION['sid']);
+  require("../connect_db.php");
   output("メニュー追加フォーム");
-
-
   ?>
 <form action="menu_adder.php" method="post">
 <input type="hidden" name= "mode" value="menu_adder" />

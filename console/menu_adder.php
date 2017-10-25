@@ -1,4 +1,6 @@
 <?php
+require("../head.php");
+AdminVerify($_SESSION['sid']);
 $product = $_POST['product'];
 $value = $_POST['value'];
 $discount = $_POST['discount'];
@@ -10,7 +12,6 @@ $comment = $_POST['comment'];
 $after_discount = $value - $dis_value;
 
 require("../connect_db.php");
-require("../head.php");
 output("メニュー追加フォーム");
 
 $week = array("日", "月", "火", "水", "木", "金", "土");

@@ -1,6 +1,7 @@
 <?php
-require("../connect_db.php");
 require("../head.php");
+AdminVerify($_SESSION['sid']);
+require("../connect_db.php");
 output("カテゴリー追加");
 
 if (!$_POST['name']==""){
