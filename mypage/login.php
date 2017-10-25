@@ -2,15 +2,24 @@
 require("../head.php");
 output("ログイン");
 
-if (isset($_SESSION['sid'])){
-  header( "Location: ./mypage.php" ) ;
-  exit;
+//エラー表示
+if (isset($_GET['err'])){
+  echo "<div class=\"panel panel-danger\"><div class=\"panel-heading\">ログインエラー</div>";
+  echo "<div class=\"panel-body\">";
+  switch($_GET['err']){
+    case "logout":
+      session_unset($_SESSION['sid']);
+      echo "ログアウトしました <a href=\"login.php\"> 再ログイン</a>";
+      exit();
+    case "login":
+      echo "ログインしていないかセッションの有効期限が切れたため、もう一度ログインしてください。";
+    case "you_dont_have_permission":
+      echo "アクセスに必要な権限がありません";
+  }
+  echo "</div></div>";
 }
 ?>
 <div class="container">
-  <?php if (@$_GET['err'] == "login"){
-    echo "<div class=\"panel panel-danger\"><div class=\"panel-heading\">ログインエラー</div><div class=\"panel-body\">ログインしていないかセッションの有効期限が切れたため、もう一度ログインしてください。</div></div>";
-  } ?>
 <form action="auth.php" method="POST">
   <h2>ログイン</h2>
   <hr>
