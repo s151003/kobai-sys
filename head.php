@@ -1,10 +1,7 @@
 <?php
-
+session_start();
 //bootstrapを読み込みヘッダーを生成する
 function output($title){
-
-      session_start();
-
       echo <<<EOM
       <!DOCTYPE html>
       <meta charset="utf-8">
