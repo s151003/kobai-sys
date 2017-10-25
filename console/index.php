@@ -1,7 +1,6 @@
 <?php
   require("../head.php");
   AdminVerify($_SESSION['sid']);
-  require("../head.php");
   output("メニュー管理ページ");
 ?>
     <div class = "container">
@@ -12,4 +11,3 @@
     <a class="btn btn-primary" href="category_manage.php">カテゴリー管理</a>
     <a class="btn btn-primary" href="yoyaku_list.php">yoyakulist</a>
     <a class="btn btn-primary" href="recive_check.php">yoyakulist</a>
-<?php
