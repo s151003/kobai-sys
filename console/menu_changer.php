@@ -1,7 +1,9 @@
 <?php
-require("../connect_db.php");
 require("../head.php");
+AdminVerify($_SESSION['sid']);
+require("../connect_db.php");
 output("メニュー管理");
+
 if (isset($_POST['del'])){
   $id = $_POST['del'];
   $query = "DELETE FROM products WHERE id='$id'";
@@ -30,6 +32,24 @@ if (isset($_POST['id'])){
   $day_limit = $_POST['day_limit'.$id];
   $comment = $_POST['comment'.$id];
   mysqli_query($link,"UPDATE products SET name='$name',value='$value',category='$category',dis_day='$dis_day',dis_value='$dis_value',day_limit='$day_limit',comment='$comment' WHERE id='$id'");
-  echo "更新";
+  echo <<<EOM
+  <div class="container">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        更新
+      </div>
+      <div class="panel-body">
+  $id
+  $name
+  $value
+  $category
+  $dis_day
+  $dis_value
+  $day_limit
+  $comment
+  </div>
+</div>
+</div>
+EOM;
 }
 ?>

@@ -1,11 +1,11 @@
-<form action="menu_changer.php" method="post">
-
 <?php
-require("../connect_db.php");
 require("../head.php");
+AdminVerify($_SESSION['sid']);
+require("../connect_db.php");
 output("メニュー管理ページ");
 DataTable("products");
 ?>
+<form action="menu_changer.php" method="post">
 <!-- 表生成開始 -->
 <div class="container">
 <table id="products" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
