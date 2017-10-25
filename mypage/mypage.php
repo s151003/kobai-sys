@@ -3,6 +3,7 @@
   output("マイページ");
   require("../connect_db.php");
   LoginVerify($_SESSION['sid']);
+
 ?>
 <body>
   <div class="container">
@@ -19,6 +20,7 @@
     	CategoryCard("$name","$comment","$id");
     }
   ?>
+  <a href="login.php?err=logout" class="btn btn-primary" role="button">logout</a>
   </div>
   </div>
 </body>
