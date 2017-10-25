@@ -58,18 +58,19 @@ CREATE TABLE `member` (
   `user_id` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `time` datetime NOT NULL
+  `admin` int(255) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- テーブルのデータのダンプ `member`
 --
 
-INSERT INTO `member` (`id`, `user_id`, `password`, `time`) VALUES
-(6, 'aki', '$2y$10$X7uOG/R2A1y8hmp3CK9mAuGd76ENtOPxlOZh80Lb5BO0PZOy1gdjC', '2017-10-12 12:20:06'),
-(7, '1', '$2y$10$Rimyj7grCL0lOxGAL.aUpukSfYlLRyjrHBsnhiJRlGo3Aprxgw3Vq', '2017-10-12 12:25:31'),
-(8, '123', '$2y$10$AtTNXlD3xe5uZTbTNg53/ebYJ4Qq/WEhmyqZbFXQcNHlhaQHPfd4y', '2017-10-12 12:27:50'),
-(9, '12345', '$2y$10$G2S1R2Zm2TxQLSbIFBubCu6IlVx0N5wXcbx5o4guCQmYB3SndnJie', '2017-10-14 06:34:02'),
-(10, '123456', '$2y$10$6tOn/QVlCbVsa2D/ui/J8.Dw79FZn08sead9IB5lAp2o3d57pFY6e', '2017-10-14 06:34:22');
+INSERT INTO `member` (`id`, `user_id`, `password`, `time`, `admin`) VALUES
+(6, 'aki', '$2y$10$X7uOG/R2A1y8hmp3CK9mAuGd76ENtOPxlOZh80Lb5BO0PZOy1gdjC', '2017-10-12 12:20:06', `1`),
+(7, '1', '$2y$10$Rimyj7grCL0lOxGAL.aUpukSfYlLRyjrHBsnhiJRlGo3Aprxgw3Vq', '2017-10-12 12:25:31', `1`),
+(8, '123', '$2y$10$AtTNXlD3xe5uZTbTNg53/ebYJ4Qq/WEhmyqZbFXQcNHlhaQHPfd4y', '2017-10-12 12:27:50', `1`),
+(9, '12345', '$2y$10$G2S1R2Zm2TxQLSbIFBubCu6IlVx0N5wXcbx5o4guCQmYB3SndnJie', '2017-10-14 06:34:02', `1`),
+(10, '123456', '$2y$10$6tOn/QVlCbVsa2D/ui/J8.Dw79FZn08sead9IB5lAp2o3d57pFY6e', '2017-10-14 06:34:22', `1`);
 
 -- --------------------------------------------------------
 
