@@ -97,5 +97,7 @@ function AdminVerify($id){
   $result = mysqli_query($link,$query);
   $row = mysqli_fetch_array($result);
   if($row['admin'] == 0){
+      header('location: /kobai-sys/mypage/login.php?err=you_dont_have_permission');
+      exit();
   }
 }
