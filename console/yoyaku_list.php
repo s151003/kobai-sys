@@ -4,18 +4,26 @@ AdminVerify($_SESSION['sid']);
 require("../connect_db.php");
 output("予約状況");
 DataTable("list");
+$today = date("Y-m-d");
+$yesterday = date("Y-m-d",strtotime("-1 day"));
 ?>
+
 <form action="yoyaku_list.php" method="GET">
 <div class="container">
 	<div class="row">
+		<h2>予約リスト</h2>
   <div class="col-sm-offset-0 col-sm-12 col-md-offset-7 col-md-5">
     <div class="input-daterange input-group" id="datepicker">
          <input required type="text" class="input-sm form-control" name="start" />
          <span class="input-group-addon">to</span>
          <input required type="text" class="input-sm form-control" name="end" />
     </div>
-    <input class="btn btn-primary" type="submit">
-  </div>
+    <button class="btn btn-primary" type="submit" >日付指定</button>
+
+    <a class="btn btn-primary" href="yoyaku_list.php?start=<?php echo $today; ?>&end=<?php echo $today; ?>"> 本日の予約 </a>
+		<a class="btn btn-primary" href="yoyaku_list.php?start=<?php echo $yesterday; ?>&end=<?php echo $yesterday; ?>"> 前日の予約 </a>
+		<a class="btn btn-primary" href="yoyaku_list.php"> 全ての予約を表示 </a></br></br>
+	 </div>
 <script>
 $('#datepicker').datepicker({
     maxViewMode: 2,
