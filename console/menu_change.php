@@ -12,10 +12,10 @@ DataTable("products");
 <thead><tr><th>#</th><th>商品名</th><th>価格</th><th>曜日割引</th><th>割引価格</th><th>修正</th><th>削除</th><th>予約受付数</th><th>販売受付</th></tr></thead>
 <?php
 $week = array("日", "月", "火", "水", "木", "金", "土","なし");
-$query = mysqli_query($link,'SELECT * FROM products');
+$result = mysqli_query($link,'SELECT * FROM products');
 $count = 0;
 echo "<tbody>";
-while ($row = mysqli_fetch_assoc($query)){
+while ($row = mysqli_fetch_assoc($result)){
   $count ++;
 
   echo "<tr>";
