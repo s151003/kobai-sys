@@ -10,8 +10,11 @@ $yesterday = date("Y-m-d",strtotime("-1 day"));
 
 <form action="yoyaku_list.php" method="GET">
 <div class="container">
+	<?php ConsoleMenu(); ?>
+	<div class="col-sm-10">
 	<div class="row">
 		<h2>予約リスト</h2>
+		<hr>
   <div class="col-sm-offset-0 col-sm-12 col-md-offset-7 col-md-5">
     <div class="input-daterange input-group" id="datepicker">
          <input required type="text" class="input-sm form-control" name="start" />
@@ -93,5 +96,6 @@ function NameValue($id){
   return array($row['name'],$row['value']);
 }
 ?>
+</div>
 </div>
 </div>
