@@ -7,6 +7,9 @@ DataTable("category");
 ?>
 <form action="category_manager.php" method="post">
 <div class="container">
+
+  <?php ConsoleMenu(); ?>
+  <div class="col-sm-10">
   <h2>カテゴリー追加</h2>
   <hr>
 <div class="form-froup">
@@ -35,4 +38,5 @@ while ($row = mysqli_fetch_assoc($result)){
 };
 
 ?>
+</div>
 </div>

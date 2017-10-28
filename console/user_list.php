@@ -6,6 +6,8 @@ output("ユーザーリスト");
 DataTable("users");
 ?>
 <div class="container">
+	<?php ConsoleMenu(); ?>
+	<div class="col-sm-10">
 <?php
 if (isset($_POST['del'])){
 	$id = $_POST['del'];
@@ -120,3 +122,4 @@ while ($row = mysqli_fetch_assoc($result)){
 <?php
   }
  ?>
+ </div>

@@ -8,6 +8,7 @@
 <input type="hidden" name= "mode" value="menu_adder" />
 
 <div class="container">
+  <?php ConsoleMenu(); ?>
   <div class="col-md-6">
   <h2>メニュー追加</h2>
   <hr>
