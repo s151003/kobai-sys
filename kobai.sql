@@ -127,7 +127,7 @@ DROP TABLE IF EXISTS `yoyaku`;
 CREATE TABLE IF NOT EXISTS `yoyaku` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `user_id` int(255) NOT NULL,
-  `products` varchar(255) NOT NULL,
+  `product` varchar(255) NOT NULL,
   `quantity` varchar(255) NOT NULL,
   `date` datetime NOT NULL,
   `status` varchar(255) NOT NULL,
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `yoyaku` (
 -- テーブルのデータのダンプ `yoyaku`
 --
 
-INSERT INTO `yoyaku` (`id`, `user_id`, `products`, `quantity`, `date`, `status`) VALUES
+INSERT INTO `yoyaku` (`id`, `user_id`, `product`, `quantity`, `date`, `status`) VALUES
 (1000, 6, '3', '1', '2017-10-28 06:29:48', '1'),
 (1001, 6, '4', '8', '2017-10-13 00:00:00', '2');
 
