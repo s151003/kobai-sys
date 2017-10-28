@@ -39,34 +39,37 @@ if (isset($_POST['admin'])){
 		}else{
 			echo "Failed";
 		}
-	} 
+	}
 
 ?>
 <form action="user_list.php" method="post">
 <!-- 表生成開始 -->
 
 <table id="users" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
-<thead><tr><th>#</th><th>ユーザー名</th><th>登録日時</th><th>管理権</th><th>切り替え</th><th>削除</th></tr></thead>
+<thead><tr><th>#</th><th>ユーザー名</th><th>登録日時</th><th>管理権限</th><th>削除</th></tr></thead>
 <?php
 $result = mysqli_query($link,'SELECT id,user_id,time,admin FROM member');
 $count = 0;
 while ($row = mysqli_fetch_assoc($result)){
   $count ++;
-
+	if ($row['admin'] == 1){
+		$row['admin'] = "<span class=\"glyphicon glyphicon-lock\"></span> 管理者";
+	}else{
+		$row['admin'] = "<span class=\"glyphicon glyphicon-user\"></span> ユーザー";
+	}
   echo "<tr>";
   echo "<td>",$row['id'],"</td>"; //商品ID
   echo "<td>",$row["user_id"],"</td>";
   echo "<td>".$row["time"]."</td>";
-  echo "<td>".$row["admin"]."</td>";
-  echo "<td><button type=\"button\" class=\"btn btn-primary btn-xs\" data-toggle=\"modal\" data-target=\"#admin".$row['id']."\"><span class=\"glyphicon glyphicon-pencil\"></span></button></td>";
-  echo "<td><button type=\"button\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#delete".$row['id']."\"><span class=\"glyphicon glyphicon-trash\"></span></button></td>"; //checkbox
+  echo "<td>".$row["admin"]." <button type=\"button\" class=\"btn btn-primary btn-xs\" data-toggle=\"modal\" data-target=\"#admin".$row['id']."\"><span class=\"glyphicon glyphicon-random\"></span> 切替</button></td>";
+  echo "<td><button type=\"button\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#delete".$row['id']."\"><span class=\"glyphicon glyphicon-trash\"></span> 削除</button></td>"; //checkbox
   echo "</tr>";
   ModalSet($row['id'],$row["user_id"],$row['admin']);
  }
   echo "</tbody>";
   echo "</table>";
   echo "<h4>" .$count. "件</h4><hr>";
-  
+
   function ModalSet($id,$name,$admin){
 	    if($admin == 1){
 			$msg = "はく奪しますか？";
@@ -74,7 +77,7 @@ while ($row = mysqli_fetch_assoc($result)){
 		}else{
 			$msg ="本当に付与しますか？";
 			$aleart ="このユーザーは今後</br><b>「ユーザの管理、すべてのユーザの予約履歴の確認、商品の管理」</b></br>ができるようになります";
-		} 
+		}
   ?>
 
   	 <div class="modal fade" id="delete<?php echo $id; ?>" tabindex="-1">
