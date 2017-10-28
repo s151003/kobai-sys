@@ -17,7 +17,7 @@
       <h1>あなたの予約履歴</h1>
       <hr>
   <table id="history" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0">
-  <thead><tr><td>#</td><td>商品名</td><td>金額</td><td>個数</td><td>状態</td><td>日付</td></tr></thead>
+  <thead><tr><td>#</td><td>商品名</td><td>金額</td><td>個数</td><td>日付</td></tr></thead>
 <?php
   $query = "SELECT * FROM `yoyaku` WHERE `user_id`= '$id'";
   $result = mysqli_query($link, $query);
@@ -29,8 +29,6 @@
     echo "<td>".$return[0]."</td>"; //商品名
     echo "<td>".$row['quantity']."</td>";
     echo "<td>".$return[1] * $row['quantity']."</td>"; //価格
-
-    echo "<td>".$status[$row["status"]]."</td>"; //checkbox
     echo "<td>".$row["date"]."</td>";
     echo "</tr>";
   };
