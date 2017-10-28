@@ -66,22 +66,14 @@ CREATE TABLE IF NOT EXISTS `member` (
   PRIMARY KEY (`id`),
   KEY `id` (`id`),
   KEY `id_2` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- テーブルのデータのダンプ `member`
 --
 
 INSERT INTO `member` (`id`, `user_id`, `password`, `time`, `admin`) VALUES
-(6, 'aki', '$2y$10$X7uOG/R2A1y8hmp3CK9mAuGd76ENtOPxlOZh80Lb5BO0PZOy1gdjC', '2017-10-12 12:20:06', 0),
-(7, '1', '$2y$10$Rimyj7grCL0lOxGAL.aUpukSfYlLRyjrHBsnhiJRlGo3Aprxgw3Vq', '2017-10-12 12:25:31', 0),
-(8, '123', '$2y$10$AtTNXlD3xe5uZTbTNg53/ebYJ4Qq/WEhmyqZbFXQcNHlhaQHPfd4y', '2017-10-12 12:27:50', 0),
-(9, '12345', '$2y$10$G2S1R2Zm2TxQLSbIFBubCu6IlVx0N5wXcbx5o4guCQmYB3SndnJie', '2017-10-14 06:34:02', 0),
-(10, '123456', '$2y$10$6tOn/QVlCbVsa2D/ui/J8.Dw79FZn08sead9IB5lAp2o3d57pFY6e', '2017-10-14 06:34:22', 0),
-(11, 'dorodorobo', '$2y$10$HQ8uB.OpkQrLfhbBi.h73.OGfw7bUfetMHzFtZKLB1dPeaMrpdSh.', '2017-10-27 15:36:39', 0),
-(12, '12', '$2y$10$8yJz..3xHLpzfDq0sm8IUOKlW2zme274kh6GKGUaTiMAriLfk/snG', '2017-10-27 15:38:48', 0),
-(13, 'あよ', '$2y$10$1Ct8XzDN7NKN/l9U/dR5Y.AuPVwEjABVgUIlet9kx0OgROP//cBTi', '2017-10-27 15:40:36', 0),
-(14, 'あさ', '$2y$10$nB2RraDy7k0J.afcc0Gaj.TMs3ziOPP3BtVTraTCic9vmrYc.Mfsu', '2017-10-27 15:41:43', 0);
+(1, 'admin', '$2y$10$9Cy6csfkTVKBSVfycGJrE.RWrJnyqIOlCpwo59KoeA1Y56YUMqefG', '2017-10-12 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -91,7 +83,8 @@ INSERT INTO `member` (`id`, `user_id`, `password`, `time`, `admin`) VALUES
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `id` int(255) NOT NULL 
+  _INCREMENT,
   `name` varchar(255) NOT NULL,
   `value` int(255) NOT NULL,
   `dis_day` int(255) NOT NULL,
@@ -102,20 +95,20 @@ CREATE TABLE IF NOT EXISTS `products` (
   `comment` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- テーブルのデータのダンプ `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `value`, `dis_day`, `dis_value`, `day_limit`, `status`, `category`, `comment`) VALUES
-(3, 'カレーパン（辛口）', 80, 7, 0, 20, 0, 1, '辛いカレーパンで眠気覚まし'),
-(4, 'カレーパン（甘口）', 80, 7, 0, 20, 0, 1, '辛いものが苦手な方はこちら'),
-(6, 'モーニングコーヒー', 90, 7, 0, 10, 0, 2, '生クリームとコーヒークリームがマッチ！'),
-(7, 'ラスク', 50, 7, 0, 20, 0, 3, '牛乳を飲みながら食べたい'),
-(8, '食パン', 120, 4, 15, 60, 0, 3, 'ジャムをお持ちの方はこちらをどうぞ'),
-(9, 'くるみパン', 120, 3, 50, 30, 0, 1, 'なつかしい中国を思い出す味'),
-(10, 'オレンジパン', 18, 7, 0, 2, 0, 9, 'おいしいおいしい');
+(1, 'カレーパン（辛口）', 80, 7, 0, 20, 0, 1, '辛いカレーパンで眠気覚まし'),
+(2, 'カレーパン（甘口）', 80, 7, 0, 20, 0, 1, '辛いものが苦手な方はこちら'),
+(3, 'モーニングコーヒー', 90, 7, 0, 10, 0, 2, '生クリームとコーヒークリームがマッチ！'),
+(4, 'ラスク', 50, 7, 0, 20, 0, 3, '牛乳を飲みながら食べたい'),
+(5, '食パン', 120, 4, 15, 60, 0, 3, 'ジャムをお持ちの方はこちらをどうぞ'),
+(6, 'くるみパン', 120, 3, 50, 30, 0, 1, 'なつかしい中国を思い出す味'),
+(7, 'オレンジパン', 18, 7, 0, 2, 0, 9, 'おいしいおいしい');
 
 -- --------------------------------------------------------
 
@@ -133,15 +126,8 @@ CREATE TABLE IF NOT EXISTS `yoyaku` (
   `status` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1002 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1000 ;
 
---
--- テーブルのデータのダンプ `yoyaku`
---
-
-INSERT INTO `yoyaku` (`id`, `user_id`, `product`, `quantity`, `date`, `status`) VALUES
-(1000, 6, '3', '1', '2017-10-28 06:29:48', '1'),
-(1001, 6, '4', '8', '2017-10-13 00:00:00', '2');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
