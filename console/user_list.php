@@ -37,7 +37,7 @@ if (isset($_POST['admin'])){
 		$query = "UPDATE member SET admin = $admin WHERE id = $id";
 		$result = mysqli_query ($link,$query);
 		if($result){
-			echo $admin;
+			echo $admin."管理者権限切り替え完了";
 		}else{
 			echo "Failed";
 		}
