@@ -7,59 +7,11 @@
 
 # 使い方
 
-
 * 導入方法  
 [導入方法.md](導入方法.md)に記載してあります
 
 * 利用方法  
 [利用ガイド.md](利用ガイド.md)に記載してあります
-
-## 生徒が会員登録するまで
-
-Gitのコミットメッセージの書き方
-http://qiita.com/itosho/items/9565c6ad2ffc24c09364
-
-Bootstrapやテーブルのソートを実装するために導入したDataTablesの読み込みにCDNを利用しているためインターネットに接続できない環境では正常に表示されません
-
-# フォルダ
-* **console**
-管理画面
-
-* **mypage**
-ログインや登録する画面
-その後の予約まで
-
-# ファイルについて
-## 会員登録  
-* **regist_form.php**   
-会員登録フォーム  
-
-* **register.php**   
-会員登録処理
-
-## ログイン
-- **login.php**   
-ログインフォーム
-
-* **auth.php**   
-ログイン処理
-
-## 予約
-
-* **mypage.php**  
-予約商品選択画面  
-ここから注文状況の確認や注文履歴が確認できるようにしたら良いのではないでしょうか。
-
-
-## 購買部側の管理画面
-* **menu_manage.php**  
-メニュー管理ページ（```add_menu.php```と```revision_menu.php```)へのリンク  
-
-
-- **add_menu.php**  
-入力フォーム
-- **menu_adder.php**  
-```add_menu.php```からデータを受け取り、SQLへ送る
 
 # SQL ```koubai.sql```
 
@@ -85,23 +37,14 @@ Bootstrapやテーブルのソートを実装するために導入したDataTabl
 - date 予約時刻
 - status 状況
 
-# コミットコメント
-#### Fix 🔧
-動かない機能を修正
-#### Clean :shower:
-リファクタリング
-#### Rename :bookmark:
-改名
-#### Move 🚧
-ファイルを移動
-#### Tada :tada:
-盛大な機能追加
-#### Add :sparkles:
-ファイル追加
-#### Update 📝
-#### Remove :fire:
-削除
+# フォルダ
+* **console**
+管理画面  
+購買部の方が操作する
 
+* **mypage**
+ログインや登録する画面
+その後の予約まで行う
 
 # 解決した課題
 今度からはissueで
