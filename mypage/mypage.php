@@ -20,7 +20,6 @@
     	CategoryCard("$name","$comment","$id");
     }
   ?>
-  <a href="login.php?err=logout" class="btn btn-primary" role="button">logout</a>
   </div>
   </div>
 </body>
