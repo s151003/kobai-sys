@@ -26,7 +26,7 @@
 
 	if($syohin1 == 1 && $syohin2 == 1){
 	echo "商品を選択してください";
-	echo '</br><a href="mypage.php"><input type="button" value="戻る" href="mypage.php">';
+	echo '<br><a href="mypage.php"><input type="button" value="戻る" href="mypage.php">';
 	}else{
 		if ($syohin1 == $syohin2) {
 //レコードの数を数える

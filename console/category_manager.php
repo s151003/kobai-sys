@@ -11,10 +11,10 @@ if (!$_POST['name']==""){
   echo "<div class=\"container\">";
 
   if(!$result){
-    echo "Errormessage: ", mysqli_error($link),"</br>";
+    echo "Errormessage: ", mysqli_error($link),"<br>";
   }else{
-    echo "<div class=\"alert alert-success\" role=\"alert\"><strong>カテゴリー追加成功</strong></br>";
-    echo "カテゴリー名：".$name."</br>";
+    echo "<div class=\"alert alert-success\" role=\"alert\"><strong>カテゴリー追加成功</strong><br>";
+    echo "カテゴリー名：".$name."<br>";
     echo "コメント：".$comment."</div>";
   }
   echo "</div>";

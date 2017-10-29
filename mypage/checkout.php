@@ -34,7 +34,7 @@ if(isset($_SESSION['cart'][$userid])){
     $result = mysqli_query($link,$query);
     $product = mysqli_fetch_array($result);
     $sum = $product['value'] * $value[1];
-    echo $product['name'].$value[1] ."個 ". $sum ."円</br>";
+    echo $product['name'].$value[1] ."個 ". $sum ."円<br>";
     $total_sum = $total_sum + $sum;
   };
 }else{
@@ -43,7 +43,7 @@ if(isset($_SESSION['cart'][$userid])){
 
   unset($_SESSION['cart']);
   echo <<<EOM
-    <b>計<b>{$total_sum}円</b> 予約が完了しました。</br>
+    <b>計<b>{$total_sum}円</b> 予約が完了しました。<br>
 	</div>
 </div>
 </div>

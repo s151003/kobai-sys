@@ -78,7 +78,7 @@ while ($row = mysqli_fetch_assoc($result)){
 			$aleart = "今後このユーザーは管理者メニューを見ることができません";
 		}else{
 			$msg ="本当に付与しますか？";
-			$aleart ="このユーザーは今後</br><b>「ユーザの管理、すべてのユーザの予約履歴の確認、商品の管理」</b></br>ができるようになります";
+			$aleart ="このユーザーは今後<br><b>「ユーザの管理、すべてのユーザの予約履歴の確認、商品の管理」</b><br>ができるようになります";
 		}
   ?>
 
@@ -90,7 +90,7 @@ while ($row = mysqli_fetch_assoc($result)){
 					<h4 class="modal-title">商品の削除</h4>
 				</div>
 					<div class="modal-body">
-					<b><?php echo $name; ?></b> さんの予約履歴は見られなくなります</br>
+					<b><?php echo $name; ?></b> さんの予約履歴は見られなくなります<br>
 					<b> <?php echo $id." : ". $name ?></b> さんのアカウントを本当に削除しますか？
 				</div>
 				<div class="modal-footer">
@@ -109,7 +109,7 @@ while ($row = mysqli_fetch_assoc($result)){
 				</div>
 					<div class="modal-body">
 					<?php	?>
-					<b> <?php echo $id." : ".$name; ?></b>  管理者権限を<?php echo $msg; ?></br></br>
+					<b> <?php echo $id." : ".$name; ?></b>  管理者権限を<?php echo $msg; ?><br><br>
 					<?php echo $aleart; ?>
 					 </div>
 				<div class="modal-footer">
