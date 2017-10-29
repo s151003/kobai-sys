@@ -27,7 +27,8 @@ if(isset($_POST['del'])){
 $count = 0;
 if(isset($_POST['add'])){
   $add = $_POST['add'].",".$_POST[$_POST['add']];
-  @$count = count($_SESSION['cart'][$userid]);
+
+  @$count = end(array_keys($_SESSION['cart'][$userid])) + 1;
   $_SESSION['cart'][$userid][$count] = explode(',',$add);
   $post = $_POST['add'];
 
@@ -50,9 +51,11 @@ if(isset($_POST['add'])){
 <table class="table table-condensed">
   <thead><th>#</th><th>商品</th><th>数量</th><th>価格</th><th>割引適用</th><th>削除</th><thead>
     <?php
+    $query_count = 0;
     if(isset($_SESSION['cart'][$userid])){
       $total = 0;
       foreach($_SESSION['cart'][$userid] as $key => $value){
+        $query_count++;
         $query = "SELECT * FROM products WHERE id = '$value[0]'";
         $result = mysqli_query($link,$query);
         $row = mysqli_fetch_array($result);
@@ -75,8 +78,6 @@ if(isset($_POST['add'])){
         echo "</tr>";
         $total = $total + $sum;
       }
-      $key = $key + 1;
-        var_dump($_SESSION['cart'][$userid]);
       echo <<<EOM
       </table>
       <div class="row">
@@ -85,7 +86,7 @@ if(isset($_POST['add'])){
  商品をすべて削除する</button></div>
 
       <hr>
-          <h3>計 {$key} 点</h3>
+          <h3>計 {$query_count} 点</h3>
           <div style="text-align:right;"><h2>{$total}円</h2></div>
           <br>
 EOM;
