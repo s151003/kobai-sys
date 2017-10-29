@@ -6,27 +6,36 @@ LoginVerify($_SESSION['sid']);
 
 $userid = $_SESSION['sid'];
 $uri_root = preg_replace('/(.*kobai-sys\/).*/i', '${1}', $_SERVER["REQUEST_URI"]);
-
+?>
+  <div class="container">
+<?php
 if(isset($_POST['add'])){
   $add = $_POST['add'].",".$_POST[$_POST['add']];
   @$count = count($_SESSION['cart'][$userid]);
   $_SESSION['cart'][$userid][$count] = explode(',',$add);
-}
-
+  $post = $_POST['add'];
+  $query = "SELECT * FROM products WHERE id = '$post'";
+  $result = mysqli_query($link,$query);
+  $row = mysqli_fetch_array($result);
 ?>
-<div class="container">
+  <div class="panel panel-default">
+     <div class="panel-heading">
+       カートに追加しました
+     </div>
+     <div class="panel-body">
+       <?php echo $row['name']; ?>
+     </div>
+     </div>
+<?php
+}
+?>
+
 <h2><?php echo $userid ?>さんのカート</h2><hr>
 <table class="table table-condensed">
   <thead><th>#</th><th>商品</th><th>数量</th><th>価格</th><th>割引適用</th><thead>
     <?php
     if(isset($_SESSION['cart'][$userid])){
     ?>
-    <div class="panel panel-default">
-	     <div class="panel-heading">
-         カートに追加しました
-       </div>
-
-	     <div class="panel-body">
     <?php
     $total = 0;
     foreach($_SESSION['cart'][$userid] as $key => $value){
@@ -35,7 +44,6 @@ if(isset($_POST['add'])){
       $row = mysqli_fetch_array($result);
       $weekno = date('w');
 
-      echo $row['name']."name";
       if ($row['dis_day'] == $weekno) {
         $_SESSION['cart']['discount'][$row['id']] = 1;
         $sum = "<font color=\"red\">".($row['value']-$row['dis_value']) * $value[1]."<font>";
@@ -45,15 +53,14 @@ if(isset($_POST['add'])){
         $sum = $row['value'] * $value[1];
       }
       $discount = $_SESSION['cart']['discount'][$row['id']];
-?>
-      </div>
-<?php
+
       echo "<tr><td>".$key."</td><td>".$row['name']."</td><td>".$value[1]."</td><td>";
       echo $sum;
       echo "</td><td>".$discount ."</td></tr>";
       $total = $total + $sum;
     }
     $key = $key + 1;
+
     echo <<<EOM
     </table>
     <div class="row">
