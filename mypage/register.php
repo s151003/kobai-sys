@@ -14,13 +14,14 @@ if($id == "" || $password == ""){
 	$row = mysqli_fetch_array($result);
 
 	if(@in_array($id,$row)){ //$rowの配列のなかに$idがあったら
-		echo "そのIDは既に使われてます";
+		echo "そのIDは既に使われてます<br />";
+        echo '<a href="login.php" target="_blank">ログインはこちら</a>';
 	}else{
 		$query = mysqli_query($link,"INSERT INTO member(user_id,password,time) VALUES('$id','$hash','$datetime')");
 		if(!$query){
 			echo "データベースへ登録する際にエラーが発生したため登録できませんでした";
 		}else{
-			echo "登録完了</br>";
+			echo "登録完了<br />";
 			echo '<a href="login.php" target="_blank">ログインはこちら</a>';
 		}
 	}
