@@ -60,7 +60,8 @@ EOM;
           //どのページからも見られるのでフルパス
           if (isset($_SESSION['sid'])){
             echo "<a class=\"btn btn-default navbar-btn\" href=\"" . $uri_root . "mypage/cart.php\"><span class=\"glyphicon glyphicon-shopping-cart\" aria-hidden=\"true\"></span> カート</a>";
-            echo "<a href=\"" . $uri_root . "mypage/mypage.php\"><p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</p></a>";
+            echo "<a href=\"" . $uri_root . "mypage/mypage.php\"><p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</p></a> ";
+            echo "<a class=\"btn btn-danger navbar-btn\" href=\"" . $uri_root . "mypage/login.php?err=logout\"><span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span> ログアウト</a>";
           }else {
             echo "<li><a href=\"" . $uri_root . "mypage/regist_form.php\"><span class=\"glyphicon glyphicon-user\"></span> 登録</a></li>";
             echo "<li><a href=\"" . $uri_root . "mypage/login.php\"><span class=\"glyphicon glyphicon-log-in\"></span> ログイン</a></li>";
