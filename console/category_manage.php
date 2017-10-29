@@ -13,15 +13,15 @@ DataTable("category");
   <h2>カテゴリー追加</h2>
   <hr>
 <div class="form-froup">
-  <label>カテゴリー名</br></label>
-  <input type="text" name="name" maxlength="100" class="form-control"></br>
+  <label>カテゴリー名<br></label>
+  <input type="text" name="name" maxlength="100" class="form-control"><br>
 </div>
 <div class="form-froup">
-  <label>コメント</br></label>
-  <input type="text" name="comment" maxlength="100" class="form-control"></br>
+  <label>コメント<br></label>
+  <input type="text" name="comment" maxlength="100" class="form-control"><br>
 </div>
   <input class="btn btn-primary" type="submit" name="submit" value="送信">
-</br></br>
+<br><br>
 
 <table id="category" class="table table-striped table-bordered cellspacing="0"">
 <thead><tr><td>#</td><td>カテゴリー</td><td>コメント</td><td>削除</td></tr></thead>

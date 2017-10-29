@@ -25,7 +25,7 @@ $yesterday = date("Y-m-d",strtotime("-1 day"));
 
     <a class="btn btn-primary" href="yoyaku_list.php?start=<?php echo $today; ?>&end=<?php echo $today; ?>"> 本日の予約 </a>
 		<a class="btn btn-primary" href="yoyaku_list.php?start=<?php echo $yesterday; ?>&end=<?php echo $yesterday; ?>"> 前日の予約 </a>
-		<a class="btn btn-primary" href="yoyaku_list.php"> 全ての予約を表示 </a></br></br>
+		<a class="btn btn-primary" href="yoyaku_list.php"> 全ての予約を表示 </a><br><br>
 	 </div>
 <script>
 $('#datepicker').datepicker({
@@ -79,7 +79,7 @@ echo "</h2>";
 if (isset($product)){
   foreach ($product as $key => $value) {
     $return = NameValue($key);
-    echo $return[0] ." : ". $value."</br>";
+    echo $return[0] ." : ". $value."<br>";
   }
 }else{
   echo "予約はありませんでした";

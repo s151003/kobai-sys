@@ -41,7 +41,7 @@ while ($row = mysqli_fetch_assoc($result)){
 ?>
 <!-- 表ここまで -->
 
-</br></br>
+<br><br>
 </div>
 </div>
 </form>
@@ -74,15 +74,15 @@ function ModalSet($name,$id,$value,$dis_value,$day_limit,$comment){
 				</div>
 				<div class="modal-body">
 				  <div class="form-froup">
-					<label>名前</br></label>
-					<input required type="text" name="product{$id}" maxlength="100" class="form-control" value="{$name}"></br>
+					<label>名前<br></label>
+					<input required type="text" name="product{$id}" maxlength="100" class="form-control" value="{$name}"><br>
 				  </div>
 				  <div class="form-froup">
-					<label>値段</label></br>
-					<input required type="number" name="value{$id}" maxlength="100" class="form-control" value="{$value}"></br>
+					<label>値段</label><br>
+					<input required type="number" name="value{$id}" maxlength="100" class="form-control" value="{$value}"><br>
 				  </div>
 				  <div class="form-froup">
-					<label>カテゴリー</label></br>
+					<label>カテゴリー</label><br>
 					<select name="category{$id}" class="form-control">
 					<optgroup>
 EOM;
@@ -93,10 +93,10 @@ EOM;
                 }
 			echo <<<EOM
 				</optgroup>
-              </select></br>
+              </select><br>
               </div>
               <div class="form-froup">
-                <label>曜日割引</label></br>
+                <label>曜日割引</label><br>
                 <select name="dis_day{$id}" class="form-control">
                 <optgroup>
                   <option value="7">割引なし</option>
@@ -106,19 +106,19 @@ EOM;
                   <option value="4">木曜日</option>
                   <option value="5">金曜日</option>
                 </optgroup>
-                </select></br>
+                </select><br>
               </div>
               <div class="form-froup">
-                <label>いくら割引ますか（割引がない場合は空欄）</label></br>
-                <input type="number" name="dis_value{$id}" maxlength="100" class="form-control" value="{$dis_value}"></br>
+                <label>いくら割引ますか（割引がない場合は空欄）</label><br>
+                <input type="number" name="dis_value{$id}" maxlength="100" class="form-control" value="{$dis_value}"><br>
               </div>
               <div class="form-froup">
-                <label>一日あたりの販売個数</label></br>
-                <input required type="number" name="day_limit{$id}" maxlength="100" class="form-control" value="{$day_limit}"></br>
+                <label>一日あたりの販売個数</label><br>
+                <input required type="number" name="day_limit{$id}" maxlength="100" class="form-control" value="{$day_limit}"><br>
               </div>
               <div class="form-froup">
-                <label>ひとことコメント</br></label>
-                <input required type="text" name="comment{$id}" maxlength="100" class="form-control" value="{$comment}"></br>
+                <label>ひとことコメント<br></label>
+                <input required type="text" name="comment{$id}" maxlength="100" class="form-control" value="{$comment}"><br>
               </div>
   			</div>
   			<div class="modal-footer">

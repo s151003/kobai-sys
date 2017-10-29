@@ -45,7 +45,7 @@ function DayLimit($product_id){
 		$day_limit = $row['day_limit'];
 		//
 		$today = date("Y-m-d");
-		$result = mysqli_query($link,"SELECT * FROM `yoyaku` WHERE `date` BETWEEN '$today 00:00:00' AND '$today 23:59:59' AND `product`= '$product_id'");
+		$result = mysqli_query($link,"SELECT * FROM `yoyaku` WHERE `date` BETWEEN '$today 00:00:00' AND '$today 23:59:59' AND `product`= $product_id");
 		$today_quantity = 0;
 		while($row = mysqli_fetch_assoc($result)){
 			$today_quantity = $today_quantity + $row['quantity'];
@@ -61,7 +61,7 @@ function ProductCard($name,$comment,$id,$img,$value){
 		$result = mysqli_query($link,"SELECT id,name,value,dis_day,dis_value FROM products WHERE id = '$id'");
 		$row = mysqli_fetch_array($result);
 		if ($row[3] == $weekno) {
-			$display = "</br><b>（本日".$row[4]."円引き！）</b>";
+			$display = "<br><b>（本日".$row[4]."円引き！）</b>";
 			$row[2] = $row[2]-$row[4];
 			$value = "<font size=\"5\" color=\"#FF0000\">".$row[2]."</font>";
 		} else {

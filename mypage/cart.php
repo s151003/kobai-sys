@@ -61,7 +61,7 @@ if(isset($_POST['add'])){
     <hr>
         <h3>計 {$key} 点</h3>
         <div style="text-align:right;"><h2>{$total}円</h2></div>
-        </br>
+        <br>
 EOM;
     echo "<a class=\"btn btn-info btn-lg btn-block\" href=\"" . $uri_root ."mypage/checkout.php\"><span class=\"glyphicon glyphicon-send\" aria-hidden=\"true\"></span> 予約確定！</a>";
     echo "</div>";
