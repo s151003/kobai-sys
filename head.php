@@ -32,13 +32,18 @@ function output($title){
     <body>
       <!-- ナビゲーションバーここから -->
       <nav class="navbar navbar-default">
+      <div class="container-fluid">
         <div class="container">
           <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navbar">
+            <span class="glyphicon glyphicon-triangle-bottom"></span>
+          </button>
 EOM;
     echo "<a class=\"navbar-brand\" href=\"" . $uri_root . "\">購買予約システム</a>";
 
     echo <<<EOM
           </div>
+          <div class="collapse navbar-collapse" id="Navbar">
           <ul class="nav navbar-nav">
             <li class="active">
 EOM;
@@ -59,15 +64,16 @@ EOM;
 EOM;
           //どのページからも見られるのでフルパス
           if (isset($_SESSION['sid'])){
-            echo "<a class=\"btn btn-default navbar-btn\" href=\"" . $uri_root . "mypage/cart.php\"><span class=\"glyphicon glyphicon-shopping-cart\" aria-hidden=\"true\"></span> カート</a>";
-            echo "<a href=\"" . $uri_root . "mypage/mypage.php\"><p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</p></a> ";
-            echo "<a class=\"btn btn-danger navbar-btn\" href=\"" . $uri_root . "mypage/login.php?err=logout\"><span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span> ログアウト</a>";
+            echo "<a href=\"" . $uri_root . "mypage/mypage.php\"><p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</a> ";
+            echo "<a class=\"btn btn-default navbar-btn\" href=\"" . $uri_root . "mypage/cart.php\"><span class=\"glyphicon glyphicon-shopping-cart\" aria-hidden=\"true\"></span> カート</a> ";
+            echo "<a class=\"btn btn-danger navbar-btn btn-sm\" href=\"" . $uri_root . "mypage/login.php?err=logout\"><span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span> ログアウト</a>";
           }else {
             echo "<li><a href=\"" . $uri_root . "mypage/regist_form.php\"><span class=\"glyphicon glyphicon-user\"></span> 登録</a></li>";
             echo "<li><a href=\"" . $uri_root . "mypage/login.php\"><span class=\"glyphicon glyphicon-log-in\"></span> ログイン</a></li>";
           }
           echo <<<EOM
           </ul>
+        </div>
         </div>
       </nav>
       <!-- ナビゲーションバーここまで -->
