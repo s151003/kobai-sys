@@ -2,7 +2,9 @@
 session_start();
 //bootstrapを読み込みヘッダーを生成する
 function output($title){
-      echo <<<EOM
+    // DocumentRoot でなくても通るように kobai ディレクトリの場所を確定
+    $uri_root = preg_replace('/(.*kobai-sys\/).*/i', '${1}', $_SERVER["REQUEST_URI"]);
+    echo <<<EOM
       <!DOCTYPE html>
       <meta charset="utf-8">
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -32,38 +34,43 @@ function output($title){
       <nav class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="/kobai-sys">購買予約システム</a>
+EOM;
+    echo "<a class=\"navbar-brand\" href=\"" . $uri_root . "\">購買予約システム</a>";
+
+    echo <<<EOM
           </div>
           <ul class="nav navbar-nav">
             <li class="active">
 EOM;
           if (isset($_SESSION['sid'])){
-            echo "<li><a href=\"/kobai-sys/mypage/mypage.php\">マイページ</a></li>";
-            echo "<li><a href=\"/kobai-sys/mypage/history.php\">予約履歴</a></li>";
+            echo "<li><a href=\"" . $uri_root . "mypage/mypage.php\">マイページ</a></li>";
+            echo "<li><a href=\"" . $uri_root . "mypage/history.php\">予約履歴</a></li>";
 
           }else {
-            echo "<li><a href=\"/kobai-sys/mypage/login.php\">ログイン</a></li>";
-            echo "<li><a href=\"/kobai-sys/mypage/regist_form.php\">新規登録</a></li>";
+            echo "<li><a href=\"" . $uri_root . "mypage/login.php\">ログイン</a></li>";
+            echo "<li><a href=\"" . $uri_root . "mypage/regist_form.php\">新規登録</a></li>";
 
           }
+          echo "<li><a href=\"" . $uri_root . "console\">管理画面</a></li>";
+
           echo <<<EOM
-            <li><a href="/kobai-sys/console">管理画面</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
 EOM;
           //どのページからも見られるのでフルパス
           if (isset($_SESSION['sid'])){
-            echo "<a class=\"btn btn-default navbar-btn\" href=\"/kobai-sys/mypage/cart.php\"><span class=\"glyphicon glyphicon-shopping-cart\" aria-hidden=\"true\"></span> カート</a>";
-            echo "<a href=\"/kobai-sys/mypage/mypage.php\"><p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</p></a>";
+            echo "<a class=\"btn btn-default navbar-btn\" href=\"" . $uri_root . "mypage/cart.php\"><span class=\"glyphicon glyphicon-shopping-cart\" aria-hidden=\"true\"></span> カート</a>";
+            echo "<a href=\"" . $uri_root . "mypage/mypage.php\"><p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</p></a>";
           }else {
-            echo "<li><a href=\"/kobai-sys/mypage/regist_form.php\"><span class=\"glyphicon glyphicon-user\"></span> 登録</a></li>";
-            echo "<li><a href=\"/kobai-sys/mypage/login.php\"><span class=\"glyphicon glyphicon-log-in\"></span> ログイン</a></li>";
+            echo "<li><a href=\"" . $uri_root . "mypage/regist_form.php\"><span class=\"glyphicon glyphicon-user\"></span> 登録</a></li>";
+            echo "<li><a href=\"" . $uri_root . "mypage/login.php\"><span class=\"glyphicon glyphicon-log-in\"></span> ログイン</a></li>";
           }
           echo <<<EOM
           </ul>
         </div>
       </nav>
       <!-- ナビゲーションバーここまで -->
+
 EOM;
 }
 
@@ -85,19 +92,23 @@ EOM;
 }
 
 function LoginVerify($session){
+  // DocumentRoot でなくても通るように kobai ディレクトリの場所を確定
+  $uri_root = preg_replace('/(.*kobai-sys\/).*/i', '${1}', $_SERVER["REQUEST_URI"]);
   if(!isset($session)){
-    header('location: /kobai-sys/mypage/login.php?err=login');
+    header("location: " . $uri_root . "mypage/login.php?err=login");
     exit();
   }
 }
 
 function AdminVerify($id){
   require_once("../connect_db.php");
+  // DocumentRoot でなくても通るように kobai ディレクトリの場所を確定
+  $uri_root = preg_replace('/(.*kobai-sys\/).*/i', '${1}', $_SERVER["REQUEST_URI"]);
   $query = "SELECT admin FROM member WHERE user_id = '$id'";
   $result = mysqli_query($link,$query);
   $row = mysqli_fetch_array($result);
   if($row['admin'] == 0){
-      header('location: /kobai-sys/mypage/login.php?err=you_dont_have_permission');
+      header("location: " . $uri_root . "mypage/login.php?err=you_dont_have_permission");
       exit();
   }
 }

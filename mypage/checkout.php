@@ -3,6 +3,7 @@ require("../connect_db.php");
 require("../head.php");
 output("予約確定ページ");
 LoginVerify($_SESSION['sid']);
+$uri_root = preg_replace('/(.*kobai-sys\/).*/i', '${1}', $_SERVER["REQUEST_URI"]);
 
 $userid = $_SESSION['sid'];
 $query = "SELECT id FROM member WHERE user_id = '$userid'";
@@ -37,7 +38,7 @@ if(isset($_SESSION['cart'][$userid])){
     $total_sum = $total_sum + $sum;
   };
 }else{
-    header( "Location: /kobai-sys/mypage/cart.php" );
+    header(" Location: " . $uri_root . "mypage/cart.php");
 }
 
   unset($_SESSION['cart']);
