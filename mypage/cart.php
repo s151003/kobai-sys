@@ -5,6 +5,7 @@ output("カート");
 LoginVerify($_SESSION['sid']);
 
 $userid = $_SESSION['sid'];
+$uri_root = preg_replace('/(.*kobai-sys\/).*/i', '${1}', $_SERVER["REQUEST_URI"]);
 
 if(isset($_POST['add'])){
   $add = $_POST['add'].",".$_POST[$_POST['add']];
@@ -61,12 +62,10 @@ if(isset($_POST['add'])){
         <h3>計 {$key} 点</h3>
         <div style="text-align:right;"><h2>{$total}円</h2></div>
         </br>
-        <a class="btn btn-info btn-lg btn-block" href="/kobai-sys/mypage/checkout.php"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> 予約確定！</a>
-    </div>
-    </div>
-
 EOM;
-
+    echo "<a class=\"btn btn-info btn-lg btn-block\" href=\"" . $uri_root ."mypage/checkout.php\"><span class=\"glyphicon glyphicon-send\" aria-hidden=\"true\"></span> 予約確定！</a>";
+    echo "</div>";
+    echo "</div>";
     }else{
       echo "</table>";
       echo "<center><h3>カートは空です</h3></center>";
