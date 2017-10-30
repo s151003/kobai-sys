@@ -41,7 +41,7 @@ if(isset($_POST['add'])){
        カートに追加しました
      </div>
      <div class="panel-body">
-       <?php echo $row['name']; ?>
+       <?php echo $row['name']; ?>を追加しました。<br>引き続き商品を選ぶ場合は<a href="../mypage">こちら</a>
      </div>
   </div>
 <?php
