@@ -129,7 +129,6 @@ echo <<<EOM
     <a href="category_manage.php" class="list-group-item">カテゴリー管理</a>
     <a href="yoyaku_list.php" class="list-group-item">予約一覧</a>
     <a href="user_list.php" class="list-group-item">ユーザーリスト</a>
-    <a href="recive_check.php" class="list-group-item">受取確認</a>
   </div>
 </div>
 EOM;
