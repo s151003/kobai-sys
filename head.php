@@ -64,7 +64,7 @@ EOM;
 EOM;
           //どのページからも見られるのでフルパス
           if (isset($_SESSION['sid'])){
-            echo "<a href=\"" . $uri_root . "mypage/mypage.php\"><p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</a> ";
+            echo "<a href=\"" . $uri_root . "mypage\"><p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</a> ";
             echo "<a class=\"btn btn-default navbar-btn\" href=\"" . $uri_root . "mypage/cart.php\"><span class=\"glyphicon glyphicon-shopping-cart\" aria-hidden=\"true\"></span> カート</a> ";
             echo "<a class=\"btn btn-danger navbar-btn btn-sm\" href=\"" . $uri_root . "mypage/login.php?err=logout\"><span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span> ログアウト</a>";
           }else {
