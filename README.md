@@ -34,7 +34,6 @@
 - products 予約した商品
 - quantity 数量
 - date 予約時刻
-- status 状況
 
 # フォルダ
 * **console**
