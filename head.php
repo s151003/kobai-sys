@@ -48,7 +48,7 @@ EOM;
             <li class="active">
 EOM;
           if (isset($_SESSION['sid'])){
-            echo "<li><a href=\"" . $uri_root . "mypage/mypage.php\">マイページ</a></li>";
+            echo "<li><a href=\"" . $uri_root . "mypage/\">マイページ</a></li>";
             echo "<li><a href=\"" . $uri_root . "mypage/history.php\">予約履歴</a></li>";
 
           }else {
