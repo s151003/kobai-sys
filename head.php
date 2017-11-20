@@ -38,24 +38,35 @@ function output($title){
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navbar">
             <span class="glyphicon glyphicon-triangle-bottom"></span>
           </button>
-EOM;
-    echo "<a class=\"navbar-brand\" href=\"" . $uri_root . "\">購買予約システム</a>";
+<style>
+.navbar-brand .img-rounded { width:auto; height:40px; border:1px solid #ddd; margin-top:-10px; }
 
-    echo <<<EOM
+</style>
+EOM;
+echo "<a class=\"navbar-brand\" href=\"" . $uri_root . "mypage/\">";
+echo <<<EOM
+	<script type="text/javascript">
+        	var image_list = new Array(
+                	"/kobai-sys/brand/1.jpg",
+                	"/kobai-sys/brand/2.jpg" );
+        	var image_number = Math.floor(Math.random() * image_list.length);
+        	document.write("<img src=" + image_list[image_number] + " class=\"img-rounded\"></img>");
+	</script>
+EOM;
+echo <<<EOM
+	</a>
           </div>
           <div class="collapse navbar-collapse" id="Navbar">
           <ul class="nav navbar-nav">
             <li class="active">
 EOM;
-          if (isset($_SESSION['sid'])){
+	if (isset($_SESSION['sid'])){
             echo "<li><a href=\"" . $uri_root . "mypage/\">マイページ</a></li>";
             echo "<li><a href=\"" . $uri_root . "mypage/history.php\">予約履歴</a></li>";
-
-          }else {
-            echo "<li><a href=\"" . $uri_root . "mypage/login.php\">ログイン</a></li>";
-            echo "<li><a href=\"" . $uri_root . "mypage/regist_form.php\">新規登録</a></li>";
-
-          }
+	}else{
+		echo "<li><a href=\"" . $uri_root . "mypage/login.php\">ログイン</a></li>";
+		echo "<li><a href=\"" . $uri_root . "mypage/regist_form.php\">新規登録</a></li>";
+	}
           echo "<li><a href=\"" . $uri_root . "console\">管理画面</a></li>";
 
           echo <<<EOM
