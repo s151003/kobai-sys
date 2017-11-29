@@ -43,12 +43,24 @@ function output($title){
 
 </style>
 EOM;
+if(isset($_SESSION['sid'])){
 echo "<a class=\"navbar-brand\" href=\"" . $uri_root . "mypage/\">";
+}else{
+echo "<a class=\"navbar-brand\" href=\"" . $uri_root . "/\">";
+}
 echo <<<EOM
 	<script type="text/javascript">
         	var image_list = new Array(
                 	"/kobai-sys/brand/1.jpg",
-                	"/kobai-sys/brand/2.jpg" );
+			"/kobai-sys/brand/1.png",
+			"/kobai-sys/brand/2.png",
+			"/kobai-sys/brand/3.png",
+			"/kobai-sys/brand/youtube.jpg",
+			"/kobai-sys/brand/loft.jpg",
+			"/kobai-sys/brand/google.jpg",
+			"/kobai-sys/brand/adidas.jpg",
+			"/kobai-sys/brand/star.jpg",
+                	"/kobai-sys/brand/2.jpg");
         	var image_number = Math.floor(Math.random() * image_list.length);
         	document.write("<img src=" + image_list[image_number] + " class=\"img-rounded\"></img>");
 	</script>
