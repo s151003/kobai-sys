@@ -12,7 +12,7 @@
 * 利用方法  
 [利用ガイド.md](利用ガイド.md)に記載してあります
 
-# データベースの構成```koubai.sql```
+# データベースの構成```kobai.sql```
 
 ## member
 - id 通し番号（AUTO_INCREMENT）
