@@ -75,10 +75,10 @@ while ($row = mysqli_fetch_assoc($result)){
   function ModalSet($id,$name,$admin){
 	    if($admin == 1){
 			$msg = "はく奪しますか？";
-			$aleart = "今後このユーザーは管理者メニューを見ることができません";
+			$alert = "今後このユーザーは管理者メニューを見ることができません";
 		}else{
 			$msg ="本当に付与しますか？";
-			$aleart ="このユーザーは今後<br><b>「ユーザの管理、すべてのユーザの予約履歴の確認、商品の管理」</b><br>ができるようになります";
+			$alert ="このユーザーは今後<br><b>「ユーザの管理、すべてのユーザの予約履歴の確認、商品の管理」</b><br>ができるようになります";
 		}
   ?>
 
@@ -110,7 +110,7 @@ while ($row = mysqli_fetch_assoc($result)){
 					<div class="modal-body">
 					<?php	?>
 					<b> <?php echo $id." : ".$name; ?></b>  管理者権限を<?php echo $msg; ?><br><br>
-					<?php echo $aleart; ?>
+					<?php echo $alert; ?>
 					 </div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
