@@ -1,3 +1,5 @@
+http://kobaisys.starfree.jp/kobai-sys/
+
 # 購買予約システム
 ---
 高校の購買部での利用を想定して作成した「購買予約システム」です。  
