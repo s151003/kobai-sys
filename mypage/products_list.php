@@ -24,12 +24,12 @@
 			$id = $row['id'];
 			$value = $row['value'];
 			//画像がなかったら$imgをNot found画像に
-			if($get_contents = @file_get_contents("../imgs/".$row['id']".jpg")){
-				$img = "../imgs/".$row['id']".jpg";
-			}elseif($get_contents = @file_get_contents("../imgs/".$row['id']".png")){
-				$img = "../imgs/".$row['id']".png";
-			}elseif($get_contents = @file_get_contents("../imgs/".$row['id']".gif")){
-				$img = "../imgs/".$row['id']".gif";
+			if($get_contents = @file_get_contents("../imgs/".$row['id'].".jpg")){
+				$img = "../imgs/".$row['id'].".jpg";
+			}elseif($get_contents = @file_get_contents("../imgs/".$row['id'].".png")){
+				$img = "../imgs/".$row['id'].".png";
+			}elseif($get_contents = @file_get_contents("../imgs/".$row['id'].".gif")){
+				$img = "../imgs/".$row['id'].".gif";
 			}else{
 				$img = "../imgs/not_found.jpg";
 			}
