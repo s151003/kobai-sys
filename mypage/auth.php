@@ -16,6 +16,18 @@ if($id == "" || $password == ""){
 			//loginへ
 			session_start();
 			$_SESSION['sid'] = "$id";
+			$datetime = date("Y-m-d H:i:s");
+			$ip = getenv("REMOTE_ADDR");
+			$host = getenv("REMOTE_HOST");
+			$referer = getenv("HTTP_REFERER");
+			if($referer == "")
+			{
+				$referer = "(not_found)";
+			}
+
+			$query = "INSERT INTO accesslog (id, time, ip, host, referer) VALUES ('$id', '$datetime', '$ip','$host', '$referer')";
+			$result = mysqli_query($link,$query);
+
 			header( "Location: ./" );
 		}else{
 			echo "IDかPWが間違いです";

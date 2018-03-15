@@ -132,6 +132,26 @@ CREATE TABLE IF NOT EXISTS `yoyaku` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8;
 COMMIT;
 
+--
+-- テーブルの構造 `accesslog`
+--
+
+DROP TABLE IF EXISTS `accesslog`;
+CREATE TABLE IF NOT EXISTS `accesslog` (
+  `no` int(255) NOT NULL AUTO_INCREMENT,
+  `id` varchar(255) NOT NULL,
+  `ip` varchar(255) NOT NULL,
+  `time` datetime NOT NULL,
+  `host` varchar(255) NOT NULL,
+  `referer` varchar(255) NOT NULL,
+  PRIMARY KEY (`no`),
+  KEY `no` (`no`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- --------------------------------------------------------
+
