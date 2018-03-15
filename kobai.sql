@@ -138,8 +138,8 @@ COMMIT;
 
 DROP TABLE IF EXISTS `accesslog`;
 CREATE TABLE IF NOT EXISTS `accesslog` (
-  `no` int(255) NOT NULL AUTO_INCREMENT,
-  `id` varchar(255) NOT NULL,
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) NOT NULL,
   `ip` varchar(255) NOT NULL,
   `time` datetime NOT NULL,
   `host` varchar(255) NOT NULL,

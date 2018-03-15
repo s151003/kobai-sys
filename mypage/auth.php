@@ -25,7 +25,7 @@ if($id == "" || $password == ""){
 				$referer = "(not_found)";
 			}
 
-			$query = "INSERT INTO accesslog (id, time, ip, host, referer) VALUES ('$id', '$datetime', '$ip','$host', '$referer')";
+			$query = "INSERT INTO accesslog (user_id, time, ip, host, referer) VALUES ('$id', '$datetime', '$ip','$host', '$referer')";
 			$result = mysqli_query($link,$query);
 
 			header( "Location: ./" );
