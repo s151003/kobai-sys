@@ -38,6 +38,14 @@ http://kobaisys.starfree.jp/kobai-sys/
 - quantity 数量
 - date 予約時刻
 
+## accesslog
+- id 通し番号（AUTO_INCREMENT 1~)
+- time アクセス時刻
+- user_id ログインをしたユーザー
+- ip ログインをしたユーザーのIPアドレス
+- host ログインをしたユーザーのホスト名
+- referer auth.phpにどこからアクセスしたか(そもそもlogin.phpから以外のログインは蹴ったほうがいい？)
+
 # フォルダ
 * **console**
 管理画面  
