@@ -144,8 +144,8 @@ CREATE TABLE IF NOT EXISTS `accesslog` (
   `ip` varchar(255) NOT NULL,
   `host` varchar(255) NOT NULL,
   `referer` varchar(255) NOT NULL,
-  PRIMARY KEY (`no`),
-  KEY `no` (`no`)
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
