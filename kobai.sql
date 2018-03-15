@@ -139,9 +139,9 @@ COMMIT;
 DROP TABLE IF EXISTS `accesslog`;
 CREATE TABLE IF NOT EXISTS `accesslog` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
+  `time` datetime NOT NULL,
   `user_id` varchar(255) NOT NULL,
   `ip` varchar(255) NOT NULL,
-  `time` datetime NOT NULL,
   `host` varchar(255) NOT NULL,
   `referer` varchar(255) NOT NULL,
   PRIMARY KEY (`no`),
