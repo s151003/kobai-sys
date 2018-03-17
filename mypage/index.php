@@ -7,7 +7,7 @@
 ?>
 <body>
   <div class="container">
-  <h1>柏の葉高校購買部</h1>
+  <h1>購買予約システム</h1>
   <hr>
   <h2> <?php echo $_SESSION['sid']; ?> さん 購買予約システムへようこそ</h2>
   <?php
