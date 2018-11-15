@@ -4,7 +4,7 @@ AdminVerify($_SESSION['sid']);
 $product = $_POST['product'];
 $value = $_POST['value'];
 $discount = $_POST['discount'];
-$dis_value = $_POST['dis_value'];
+@$dis_value = $_POST['dis_value'];
 $category = $_POST['category'];
 $day_limit = $_POST['day_limit'];
 $comment = $_POST['comment'];

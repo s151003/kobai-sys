@@ -1,4 +1,4 @@
-  <?php
+<?php
   require("../head.php");
   AdminVerify($_SESSION['sid']);
   require("../connect_db.php");
@@ -6,7 +6,6 @@
   ?>
 <form action="menu_adder.php" method="post">
 <input type="hidden" name= "mode" value="menu_adder" />
-
 <div class="container">
   <?php ConsoleMenu(); ?>
   <div class="col-md-6">
@@ -37,8 +36,9 @@
   </div>
   <div class="form-froup">
     <label>曜日割引</label><br>
-    <select name="discount" class="form-control">
+    <select required name="discount" id="dis_day" class="form-control" onChange="judgeDiscound()">
     <optgroup>
+      <option value="" selected disable hidden>選択してください</option>
       <option value="7">割引なし</option>
       <option value="1">月曜日</option>
       <option value="2">火曜日</option>
@@ -50,8 +50,7 @@
   </div>
   <div class="form-froup">
     <label>いくら割引ますか</label><br>
-    <input type="number" name="dis_value" maxlength="100" class="form-control" value="0">
-    <small class="form-text text-muted">（割引がない場合は0）</small>
+    <input type="number" name="dis_value" id="dis_value" maxlength="100" class="form-control" value="0">
   </div><br>
   <div class="form-froup">
     <label>一日あたりの販売個数</label><br>
@@ -65,3 +64,13 @@
   </div>
     <div class="col-md-6"></div>
 </div>
+<script>
+function judgeDiscound(){
+    if(document.getElementById("dis_day").value=="7"){
+      document.getElementById("dis_value").disabled = true;
+    }else{
+      document.getElementById("dis_value").disabled = false;
+    }
+
+}
+</script>
