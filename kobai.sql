@@ -130,6 +130,24 @@ CREATE TABLE IF NOT EXISTS `yoyaku` (
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `cart`
+--
+
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE IF NOT EXISTS `cart` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `user_id` int(255) NOT NULL,
+  `product_id` int(255) NOT NULL,
+  `quantity` int(255) NOT NULL,
+  `added_time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8;
+
 COMMIT;
 
 --

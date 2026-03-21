@@ -54,20 +54,29 @@ function DayLimit($product_id){
 		$result = mysqli_stmt_get_result($stmt);
 		$row = mysqli_fetch_assoc($result);
 		$day_limit = $row['day_limit'];
-		//
+
 		$today = date("Y-m-d");
-		$stmt2 = mysqli_prepare($link, "SELECT * FROM `yoyaku` WHERE `date` BETWEEN ? AND ? AND `product` = ?");
 		$today_start = $today . ' 00:00:00';
 		$today_end = $today . ' 23:59:59';
+
+		//本日の確定済み予約数を集計
+		$stmt2 = mysqli_prepare($link, "SELECT COALESCE(SUM(quantity), 0) as total FROM `yoyaku` WHERE `date` BETWEEN ? AND ? AND `product` = ?");
 		mysqli_stmt_bind_param($stmt2, "ssi", $today_start, $today_end, $product_id);
 		mysqli_stmt_execute($stmt2);
-		$result = mysqli_stmt_get_result($stmt2);
-		$today_quantity = 0;
-		while($row = mysqli_fetch_assoc($result)){
-			$today_quantity = $today_quantity + $row['quantity'];
-		}
-		$remaining = $day_limit - $today_quantity;
-		return $remaining;
+		$result2 = mysqli_stmt_get_result($stmt2);
+		$row2 = mysqli_fetch_assoc($result2);
+		$today_reserved = $row2['total'];
+
+		//本日のカート内数量を集計（未確定）
+		$stmt3 = mysqli_prepare($link, "SELECT COALESCE(SUM(quantity), 0) as total FROM `cart` WHERE `added_time` BETWEEN ? AND ? AND `product_id` = ?");
+		mysqli_stmt_bind_param($stmt3, "ssi", $today_start, $today_end, $product_id);
+		mysqli_stmt_execute($stmt3);
+		$result3 = mysqli_stmt_get_result($stmt3);
+		$row3 = mysqli_fetch_assoc($result3);
+		$today_in_cart = $row3['total'];
+
+		$remaining = $day_limit - $today_reserved - $today_in_cart;
+		return max(0, $remaining);
 }
 
 function ProductCard($name,$comment,$id,$img,$value){
