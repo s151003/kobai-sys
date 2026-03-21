@@ -87,7 +87,7 @@ EOM;
 EOM;
           //どのページからも見られるのでフルパス
           if (isset($_SESSION['sid'])){
-            echo "<a href=\"" . $uri_root . "mypage\"><p class=\"navbar-text\">ようこそ！".$_SESSION['sid']."さん</a> ";
+            echo "<a href=\"" . $uri_root . "mypage\"><p class=\"navbar-text\">ようこそ！".htmlspecialchars($_SESSION['sid'], ENT_QUOTES, 'UTF-8')."さん</a> ";
             echo "<a class=\"btn btn-default navbar-btn\" href=\"" . $uri_root . "mypage/cart.php\"><span class=\"glyphicon glyphicon-shopping-cart\" aria-hidden=\"true\"></span> カート</a> ";
             echo "<a class=\"btn btn-danger navbar-btn btn-sm\" href=\"" . $uri_root . "mypage/login.php?err=logout\"><span class=\"glyphicon glyphicon-log-out\" aria-hidden=\"true\"></span> ログアウト</a>";
           }else {
@@ -134,8 +134,10 @@ function AdminVerify($id){
   require_once("../connect_db.php");
   // DocumentRoot でなくても通るように kobai ディレクトリの場所を確定
   $uri_root = preg_replace('/(.*kobai-sys\/).*/i', '${1}', $_SERVER["REQUEST_URI"]);
-  $query = "SELECT admin FROM member WHERE user_id = '$id'";
-  $result = mysqli_query($link,$query);
+  $stmt = mysqli_prepare($link, "SELECT admin FROM member WHERE user_id = ?");
+  mysqli_stmt_bind_param($stmt, "s", $id);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
   $row = mysqli_fetch_array($result);
   if($row['admin'] == 0){
       header("location: " . $uri_root . "mypage/login.php?err=you_dont_have_permission");
