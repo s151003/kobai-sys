@@ -2,7 +2,7 @@
 	require("../connect_db.php");
 	require("../head.php");
 	output("商品ページ");
-	$cat = $_GET['cat'];
+	$cat = intval($_GET['cat']);
 	LoginVerify($_SESSION['sid']);
 
 ?>
@@ -14,7 +14,10 @@
 	}
 	</style>
 <?php
-	$result = mysqli_query($link,"SELECT * FROM `products` WHERE `category` = '$cat'");
+	$stmt = mysqli_prepare($link, "SELECT * FROM `products` WHERE `category` = ?");
+	mysqli_stmt_bind_param($stmt, "i", $cat);
+	mysqli_stmt_execute($stmt);
+	$result = mysqli_stmt_get_result($stmt);
 	echo "<div class=\"container\">";
 	echo "<div class=\"row\">";
 	if (isset($result)){
@@ -45,12 +48,20 @@ function DayLimit($product_id){
 		require("../connect_db.php");
 
 		//商品の一日制限個数取得
-		$result = mysqli_query($link,"SELECT day_limit FROM `products` WHERE `id` = '$product_id'");
+		$stmt = mysqli_prepare($link, "SELECT day_limit FROM `products` WHERE `id` = ?");
+		mysqli_stmt_bind_param($stmt, "i", $product_id);
+		mysqli_stmt_execute($stmt);
+		$result = mysqli_stmt_get_result($stmt);
 		$row = mysqli_fetch_assoc($result);
 		$day_limit = $row['day_limit'];
 		//
 		$today = date("Y-m-d");
-		$result = mysqli_query($link,"SELECT * FROM `yoyaku` WHERE `date` BETWEEN '$today 00:00:00' AND '$today 23:59:59' AND `product`= $product_id");
+		$stmt2 = mysqli_prepare($link, "SELECT * FROM `yoyaku` WHERE `date` BETWEEN ? AND ? AND `product` = ?");
+		$today_start = $today . ' 00:00:00';
+		$today_end = $today . ' 23:59:59';
+		mysqli_stmt_bind_param($stmt2, "ssi", $today_start, $today_end, $product_id);
+		mysqli_stmt_execute($stmt2);
+		$result = mysqli_stmt_get_result($stmt2);
 		$today_quantity = 0;
 		while($row = mysqli_fetch_assoc($result)){
 			$today_quantity = $today_quantity + $row['quantity'];
@@ -63,7 +74,10 @@ function ProductCard($name,$comment,$id,$img,$value){
 		//当日の曜日番号
 		$weekno = date('w');
 		require("../connect_db.php");
-		$result = mysqli_query($link,"SELECT id,name,value,dis_day,dis_value FROM products WHERE id = '$id'");
+		$stmt3 = mysqli_prepare($link, "SELECT id,name,value,dis_day,dis_value FROM products WHERE id = ?");
+		mysqli_stmt_bind_param($stmt3, "i", $id);
+		mysqli_stmt_execute($stmt3);
+		$result = mysqli_stmt_get_result($stmt3);
 		$row = mysqli_fetch_array($result);
 		if ($row[3] == $weekno) {
 			$display = "<br><b>（本日".$row[4]."円引き！）</b>";

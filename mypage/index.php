@@ -9,7 +9,7 @@
   <div class="container">
   <h1>購買予約システム</h1>
   <hr>
-  <h2> <?php echo $_SESSION['sid']; ?> さん 購買予約システムへようこそ</h2>
+  <h2> <?php echo htmlspecialchars($_SESSION['sid'], ENT_QUOTES, 'UTF-8'); ?> さん 購買予約システムへようこそ</h2>
   <?php
     $result = mysqli_query($link,'SELECT * FROM category');
     echo "<div class=\"row\">";

@@ -7,7 +7,10 @@ $password = $_POST['password'];
 if($id == "" || $password == ""){
 	print "IDかパスワードが空です";
 }else{
-	$hash = mysqli_query($link,"SELECT * FROM `member` WHERE `user_id` = '$id'");
+	$stmt = mysqli_prepare($link, "SELECT * FROM `member` WHERE `user_id` = ?");
+	mysqli_stmt_bind_param($stmt, "s", $id);
+	mysqli_stmt_execute($stmt);
+	$hash = mysqli_stmt_get_result($stmt);
 	$row = mysqli_fetch_array($hash);
 		if($row[1] == "" || $row[2] == ""){
 		echo "IDかPWが間違いです";
@@ -25,8 +28,9 @@ if($id == "" || $password == ""){
 				$referer = "(not_found)";
 			}
 
-			$query = "INSERT INTO accesslog (user_id, time, ip, host, referer) VALUES ('$id', '$datetime', '$ip','$host', '$referer')";
-			$result = mysqli_query($link,$query);
+			$stmt2 = mysqli_prepare($link, "INSERT INTO accesslog (user_id, time, ip, host, referer) VALUES (?, ?, ?, ?, ?)");
+			mysqli_stmt_bind_param($stmt2, "sssss", $id, $datetime, $ip, $host, $referer);
+			mysqli_stmt_execute($stmt2);
 
 			header( "Location: ./" );
 		}else{

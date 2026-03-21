@@ -60,7 +60,10 @@ function ModalSet($name,$id,$value,$dis_value,$day_limit,$comment){
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-					<button type="submit" class="btn btn-danger" name='del' value='{$id}'>削除</button>
+					<form action="menu_changer.php" method="post" style="display:inline;">
+						<input type="hidden" name="del" value="{$id}">
+						<button type="submit" class="btn btn-danger">削除</button>
+					</form>
 				</div>
 			</div>
 		</div>
